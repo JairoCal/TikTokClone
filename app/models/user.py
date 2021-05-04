@@ -2,7 +2,25 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+# ----------------------Joint Table (UserCategory)------------------------
+user_category = db.Table(
+  'user_category',
+  db.Column("category_id", db.Integer, db.ForeignKey('users.id'), nullable=False
+  ),
+  db.Column(
+    "server_id", db.Integer, db.ForeignKey('categories.id'), nullable = False
+  )
+)
 
+# # ----------------------Joint Table (VideoCategory)------------------------
+# video_category = db.Table(
+#   'video_category',
+#   db.Column("video_id", db.Integer, db.ForeignKey('videos.id'), nullable=False
+#   ),
+#   db.Column(
+#     "category_id", db.Integer, db.ForeignKey('categories.id'), nullable = False
+#   )
+# )
 #------------------------ User Class Table ---------------------------
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
@@ -18,7 +36,7 @@ class User(db.Model, UserMixin):
   created_at = db.Column(db.Date)
 
   # relations
-  category_link = db.relationship('Server', back_populates='user_link')
+  category_link = db.relationship('Category', back_populates='user_link')
   categories = db.relationship('Category',secondary=user_category, back_populates='users', lazy='dynamic')
 
   @property
@@ -43,27 +61,50 @@ class User(db.Model, UserMixin):
       "about": self.about
     }
 
-# ----------------------Joint Table (UserCategory)------------------------
-user_category = db.Table(
-  'user_category',
-  db.Column("category_id", db.Integer, db.ForeignKey('users.id'), nullable=False
-  )
-  db.Column(
-    "server_id", db.Integer, db.ForeignKey('categories.id'), nullable = False
-  )
-)
-
 # ----------------------Category Class Table -----------------------------
 class Category(db.Model):
     __tablename__ = 'categories'
 
     id = db.Column(db.Integer, primary_key=True)
-    genre = db.Column(db.String(255), nullable = False, unique = True) # we only want each genre defined once
+    genre = db.Column(db.String(255), nullable = False, unique = True) # we only want each genre definedonce
 
-    # relations
+    # Relations
+    # User relation
     user_link = db.relationship('User', back_populates='category_link')
     users = db.relationship('User', secondary=user_category, back_populates='categories', lazy='dynamic')
+    # Video relation
+    # video_link = db.relationship('Video', back_populates='category_link')
+    # users_video = db.relationship('Video', secondary=video_category, back_populates='categories_video')
 
     def to_dict(self):
+      return {
       "id": self.id,
       "genre": self.genre
+      }
+
+
+# #------------------------ Video Class Table ---------------------------
+# class Video(db.Model):
+#   __tablename__ = 'videos'
+
+#   id = db.Column(db.Integer, primary_key = True)
+#   user_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
+#   title = db.Column(db.String(100), nullable = False)
+#   description = db.Column(db.String(255), nullable = False)
+#   video_url = db.Column(db.String(500), nullable = False)
+#   created_at = db.Column(db.Date)
+
+#   # Relations
+#   # category relation
+#   category__link = db.relationship('Category', back_populates='video_link')
+#   categories_video = db.relationship('Category',secondary=video_category, back_populates='users_video', lazy='dynamic')
+  
+
+#   def to_dict(self):
+#     return {
+#       "id": self.id,
+#       "user_id": self.user_id,
+#       "title": self.title,
+#       "description": self.description,
+#       "video_url": self.video_url,
+#     }
