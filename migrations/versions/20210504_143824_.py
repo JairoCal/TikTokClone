@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: ec63152b40d8
+Revision ID: ebdb30d70580
 Revises: 
-Create Date: 2021-05-04 14:06:56.133676
+Create Date: 2021-05-04 14:38:24.384113
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ec63152b40d8'
+revision = 'ebdb30d70580'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -37,6 +37,24 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
+    )
+    op.create_table('follows',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('follower_id', sa.Integer(), nullable=False),
+    sa.Column('uploader_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['follower_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['uploader_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('private_messages',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('sender_id', sa.Integer(), nullable=False),
+    sa.Column('receiver_id', sa.Integer(), nullable=False),
+    sa.Column('messages', sa.Text(), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['receiver_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['sender_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('user_category',
     sa.Column('category_id', sa.Integer(), nullable=False),
@@ -68,6 +86,8 @@ def downgrade():
     op.drop_table('video_category')
     op.drop_table('videos')
     op.drop_table('user_category')
+    op.drop_table('private_messages')
+    op.drop_table('follows')
     op.drop_table('users')
     op.drop_table('categories')
     # ### end Alembic commands ###
