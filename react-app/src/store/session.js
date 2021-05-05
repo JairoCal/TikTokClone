@@ -78,7 +78,6 @@ export const signUp = (
     if(image) {
         formData.append('image', image);
     }
-    console.log(formData.data)
   const response = await fetch("/api/auth/signup", {
     method: "POST",
     // headers: {
