@@ -1,5 +1,6 @@
 from .db import db
 
+
 class Follow(db.Model):
     __tablename__ = 'follows'
 
