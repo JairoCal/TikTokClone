@@ -8,7 +8,7 @@ user_category = db.Table(
     db.Column("category_id", db.Integer, db.ForeignKey('users.id'), nullable=False
               ),
     db.Column(
-        "server_id", db.Integer, db.ForeignKey('categories.id'), nullable=False
+        "user_id", db.Integer, db.ForeignKey('categories.id'), nullable=False
     )
 )
 
@@ -22,7 +22,7 @@ video_category = db.Table(
     )
 )
 
-# ------------------------ User Class Table ---------------------------
+# ------------------------ User Class Table -------------------------------
 
 
 class User(db.Model, UserMixin):
@@ -39,7 +39,9 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.Date)
 
     # relations
-    category_link = db.relationship('Category', back_populates='user_link')
+    # Video relation
+    videos = db.relationship('Video', back_populates='users')
+    # Category relation
     categories = db.relationship(
         'Category', secondary=user_category, back_populates='users', lazy='dynamic')
 
@@ -76,11 +78,10 @@ class Category(db.Model):
 
     # Relations
     # User relation
-    user_link = db.relationship('User', back_populates='category_link')
     users = db.relationship('User', secondary=user_category,
                             back_populates='categories', lazy='dynamic')
     # Video relation
-    video_link = db.relationship('Video', back_populates='category_link')
+    # video_link = db.relationship('Video', back_populates='category_link')
     users_video = db.relationship(
         'Video', secondary=video_category, back_populates='categories_video', lazy='dynamic')
 
@@ -105,8 +106,9 @@ class Video(db.Model):
     created_at = db.Column(db.Date)
 
     # Relations
-    # category relation
-    category__link = db.relationship('Category', back_populates='video_link')
+    # User relation
+    users = db.relationship('User', back_populates='videos')
+    # Category relation
     categories_video = db.relationship(
         'Category', secondary=video_category, back_populates='users_video', lazy='dynamic')
     # comments relation

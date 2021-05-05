@@ -58,9 +58,9 @@ def upgrade():
     )
     op.create_table('user_category',
     sa.Column('category_id', sa.Integer(), nullable=False),
-    sa.Column('server_id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['category_id'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['server_id'], ['categories.id'], )
+    sa.ForeignKeyConstraint(['user_id'], ['categories.id'], )
     )
     op.create_table('videos',
     sa.Column('id', sa.Integer(), nullable=False),
