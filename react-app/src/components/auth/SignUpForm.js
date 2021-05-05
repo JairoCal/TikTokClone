@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { Redirect } from "react-router-dom";
+import { signUp } from "../../store/session";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
+  const user = useSelector((state) => state.session.user);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [about, setAbout] = useState("");
+  const [image, setImage] = useState(null);
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("image", image);
+
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+      await dispatch(
+        signUp(username, email, firstName, lastName, about, image, password)
+      );
     }
   };
 
@@ -22,8 +31,25 @@ const SignUpForm = () => {
     setUsername(e.target.value);
   };
 
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateAbout = (e) => {
+    setAbout(e.target.value);
+  };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
   };
 
   const updatePassword = (e) => {
@@ -56,6 +82,39 @@ const SignUpForm = () => {
           name="email"
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div>
+        <label>First Name</label>
+        <input
+          type="text"
+          name="firstName"
+          onChange={updateFirstName}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      <div>
+        <label>About</label>
+        <textarea name="about" onChange={updateAbout} value={about}></textarea>
+      </div>
+      <div className="signup_div_image">
+        <label>Image</label>
+        <input
+          name="profile_image"
+          type="file"
+          placeholder="Select Image"
+          accept="image/*"
+          onChange={updateImage}
+          className="singup_input_image"
         ></input>
       </div>
       <div>

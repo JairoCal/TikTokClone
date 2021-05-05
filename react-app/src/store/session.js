@@ -59,21 +59,36 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (username, email, password) => async (dispatch)=> {
-    const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            username,
-            email,
-            password,
-        }),
-    });
-    const data = await response.json();
-    dispatch(setUser(data));
-}
+export const signUp = (
+  username,
+  email,
+  firstName,
+  lastName,
+  about,
+  image,
+  password
+) => async (dispatch) => {
+  const formData = new FormData();
+    formData.append('username', username);
+    formData.append('email', email);
+    formData.append("password", password);
+    formData.append('firstName', firstName);
+    formData.append('lastName', lastName);
+    formData.append('about', about);
+    if(image) {
+        formData.append('image', image);
+    }
+    console.log(formData.data)
+  const response = await fetch("/api/auth/signup", {
+    method: "POST",
+    // headers: {
+    //     "Content-Type": "application/json",
+    // },
+    body: formData
+  });
+  const data = await response.json();
+  dispatch(setUser(data));
+};
 
 // reducer
 
