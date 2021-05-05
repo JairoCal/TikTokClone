@@ -1,6 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users_videos_categories, undo_users_videos_categories
 from .follows import seed_follows, undo_follows
+from .comments import seed_comments, undo_comments
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -13,6 +14,7 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users_videos_categories()
     seed_follows()
+    seed_comments()
     # Add other seed functions here
 
 # Creates the `flask seed undo` command
@@ -22,4 +24,5 @@ def seed():
 def undo():
     undo_users_videos_categories()
     undo_follows()
+    undo_comments()
     # Add other undo functions here

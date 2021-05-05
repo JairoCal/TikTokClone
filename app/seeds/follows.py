@@ -2,7 +2,7 @@ from app.models import db, Follow
 
 
 def seed_follows():
-    follows1 = Follow(follower_id=1, uploader_id=2)
+    follows1 = Follow(follower_id=1, uploader_id=2,)
 
     db.session.add(follows1)
     db.session.commit()
