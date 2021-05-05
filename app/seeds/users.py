@@ -42,6 +42,12 @@ def seed_users_videos_categories():
     db.session.add(demo)
     db.session.add(jairo)
 
+    # ------------------Videos----------------------------------
+    hp_trailer = Video(user_id=2, title='Hogwarts Legacy Trailer',
+                       description='Experience a new story set at #Hogwarts​ in the 1800s. Your character is a student who holds the key to an ancient secret that threatens to tear the wizarding world apart. Make allies, battle Dark wizards and decide the fate of the wizarding world.', video_url='https://www.youtube.com/watch?v=1O6Qstncpnc&t=5s', created_at=datetime.now())
+
+    hp_trailer.categories_video.append(gaming)
+
     db.session.commit()
 
 
