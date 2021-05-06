@@ -1,5 +1,17 @@
 .right_nav {
-    margin-left: 310px;
-    border: 3px solid black;
-    padding: 3px;
+  display: flex;
+  margin-left: 250px;
+  border: 1px solid black;
+  height: 94.55vh;
+}
+
+.comments_container {
+  border: 1px solid red;
+  min-width: 250px;
+}
+
+.comments_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

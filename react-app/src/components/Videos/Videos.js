@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getFriendsFeed } from "../../store/friendsfeed";
 
-import './videos.css'
+import "./videos.css";
 
 function Videos() {
   const dispatch = useDispatch();
@@ -18,13 +18,14 @@ function Videos() {
   return (
     <div className="right_nav">
       <div className="video_container">
-        {friendsFeed.length > 0 && friendsFeed.map((video) => (
-            <div>
-            {video.description}
-            </div>
-        ))}
+        {friendsFeed.length > 0 &&
+          friendsFeed.map((video) => <div>{video.description}</div>)}
       </div>
-      <div className="comments_container"></div>
+      <div className="comments_container">
+        <div className="comments_header">
+          <h1>Comments!</h1>
+        </div>
+      </div>
     </div>
   );
 }
