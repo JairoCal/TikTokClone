@@ -30,6 +30,10 @@ def seed_users_videos_categories():
                 profile_image='https://bellfund.ca/wp-content/uploads/2018/03/demo-user.jpg', created_at=datetime.now())
     jairo = User(username='JairoCal', email='jairo@gmail.com', password='password', firstName='Jairo', lastName='Calderon', about='Just another user',
                  profile_image='https://avatarfiles.alphacoders.com/128/thumb-128984.png', created_at=datetime.now())
+    demo2 = User(username='Demo2', email='demo2@gmail.com', password='password', firstName='Demo2', lastName='User2', about='Just another user',
+                 profile_image='https://avatarfiles.alphacoders.com/128/thumb-128984.png', created_at=datetime.now())
+    demo3 = User(username='demo3Cal', email='demo3@gmail.com', password='password', firstName='demo3', lastName='User3', about='Just another user',
+                 profile_image='https://avatarfiles.alphacoders.com/128/thumb-128984.png', created_at=datetime.now())
 
     # Third append Users to Categories and commit
     demo.categories.append(gaming)
@@ -38,15 +42,19 @@ def seed_users_videos_categories():
     jairo.categories.append(crypto)
     jairo.categories.append(sports)
     jairo.categories.append(science)
+    demo2.categories.append(science)
 
     db.session.add(demo)
+    db.session.add(demo2)
+    db.session.add(demo3)
     db.session.add(jairo)
 
     # ------------------Videos----------------------------------
     hp_trailer = Video(user_id=2, title='Hogwarts Legacy Trailer',
                        description='Experience a new story set at #Hogwarts​ in the 1800s. Your character is a student who holds the key to an ancient secret that threatens to tear the wizarding world apart. Make allies, battle Dark wizards and decide the fate of the wizarding world.', video_url='https://www.youtube.com/watch?v=1O6Qstncpnc&t=5s', created_at=datetime.now())
-
+    same_trailer = Video(user_id=3, title='Hogwarts Legacy Trailer', description='Experience a new story set at #Hogwarts​ in the 1800s. Your character is a student who holds the key to an ancient secret that threatens to tear the wizarding world apart. Make allies, battle Dark wizards and decide the fate of the wizarding world.', video_url='https://www.youtube.com/watch?v=1O6Qstncpnc&t=5s', created_at=datetime.now())
     hp_trailer.categories_video.append(gaming)
+    same_trailer.categories_video.append(gaming)
 
     db.session.commit()
 

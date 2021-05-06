@@ -3,8 +3,10 @@ from app.models import db, Follow
 
 def seed_follows():
     follows1 = Follow(follower_id=1, uploader_id=2,)
+    follows2 = Follow(follower_id=1, uploader_id=3,)
 
     db.session.add(follows1)
+    db.session.add(follows2)
     db.session.commit()
 
 

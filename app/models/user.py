@@ -5,10 +5,10 @@ from flask_login import UserMixin
 # ----------------------Joint Table (UserCategory)------------------------
 user_category = db.Table(
     'user_category',
-    db.Column("category_id", db.Integer, db.ForeignKey('users.id'), nullable=False
+    db.Column("category_id", db.Integer, db.ForeignKey('categories.id'), nullable=False
               ),
     db.Column(
-        "user_id", db.Integer, db.ForeignKey('categories.id'), nullable=False
+        "user_id", db.Integer, db.ForeignKey('users.id'), nullable=False
     )
 )
 
