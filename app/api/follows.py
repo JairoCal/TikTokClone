@@ -7,10 +7,19 @@ follows_routes = Blueprint('follows', __name__)
 # Queries for people the logged in user follows (working)
 @follows_routes.route('/<user_id>')
 def following(user_id):
+    following_list_ids = []
+    following_list = []
     # check the Follow table for all situations where
     # the logged in user is a follower
     follows = Follow.query.filter(Follow.follower_id == user_id).all()
-    return {"follows": [follow.to_dict() for follow in follows]}
+    for follow in follows:
+        following_list_ids.append(follow.to_dict()["uploader_id"])
+    for uploader_id in following_list_ids:
+        user_obj = User.query.filter(User.id == uploader_id).all()
+        users = [user.to_dict() for user in user_obj]
+        for user in users:
+            following_list.append(user)
+    return {"follows": following_list}
 
 
 # Query for all of the videos created by the people the current user follows
