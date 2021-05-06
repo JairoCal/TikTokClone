@@ -1,0 +1,7 @@
+.login_form {
+    position: absolute;
+    margin-left: 310px;
+    margin-top: 40%;
+    border: 3px solid black;
+    padding: 3px;
+}

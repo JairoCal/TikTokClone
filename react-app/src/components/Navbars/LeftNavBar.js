@@ -2,23 +2,27 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {getUserFollowing} from '../../store/following'
 
+import './Narbars.css'
+
 function LeftNavBar() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     const following = useSelector(state => state.following)
 
     useEffect(() =>{
+      if(user){
         dispatch(getUserFollowing(user.id))
+      }
     },[dispatch])
 
 
   return (
-    <div>
+    <nav className="left_navbar">
       <div>
-        <h1>Following! for user {user.id}</h1>
+        <h1>Following!</h1>
       </div>
       <div>
-        <h1>This is where all I follow will go!</h1>
+        <h1>These are the people I follow!</h1>
         <ul>
             {following.length > 0 && following.map((following) => (
                 <div>
@@ -27,7 +31,7 @@ function LeftNavBar() {
             ))}
         </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 

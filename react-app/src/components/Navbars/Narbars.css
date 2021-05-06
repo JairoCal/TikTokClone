@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+    margin: 0
+}
+
+.left_navbar {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  height: 94.15vh;
+  position: fixed;
+  top: 0;
+  box-sizing: inherit
+}
+
+.bottom_navbar {
+  border: 3px solid blue;
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: inherit
+
+}
