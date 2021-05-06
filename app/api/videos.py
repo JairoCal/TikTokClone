@@ -16,3 +16,6 @@ def all_videos():
 def user_videos(user_id):
     videos = Video.query.filter(Video.user_id == user_id).all()
     return {"videos": [video.to_dict() for video in videos]}
+
+
+
