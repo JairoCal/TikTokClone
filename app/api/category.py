@@ -11,5 +11,12 @@ def user_categories(user_id):
         user_category.c.user_id == user_id).all()
     categories_list = []
     for category in categories:
-        print(category, "this is a category in the categories list */****************************")
-        add_category = Category.query.filter(Category.id == category[0]).first()
+        # each category returns a tuple so must refer to an index when querying
+        add_category = Category.query.filter(
+            Category.id == category[0]).first()
+        categories_list.append(add_category)
+    return {"user_categories": [category.to_dict() for category in categories_list]}
+
+
+# Make another query like the one before except we will implement grabbing all of the videos
+# that are linked to the return of those categories
