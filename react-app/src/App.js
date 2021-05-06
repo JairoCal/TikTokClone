@@ -10,6 +10,7 @@ import User from "./components/User";
 // import { authenticate } from "./services/auth";
 import { authenticate } from "./store/session";
 import LeftNavBar from "./components/Navbars/LeftNavBar";
+import Videos from "./components/Videos/Videos";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -45,7 +46,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true}>
-
+          <Videos />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
