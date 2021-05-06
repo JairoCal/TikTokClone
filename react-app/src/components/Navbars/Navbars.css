@@ -4,7 +4,13 @@ body {
 }
 
 h1 {
-    margin: 0
+  margin: 0;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
 }
 
 .left_navbar {
@@ -16,13 +22,13 @@ h1 {
   position: fixed;
   top: 0;
   box-sizing: inherit;
-  width: 250px
+  width: 250px;
 }
 
 .left_navbar_header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bottom_navbar {
@@ -35,6 +41,11 @@ h1 {
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  box-sizing: inherit
+  box-sizing: inherit;
+}
 
+.user_logout_container, .user_info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

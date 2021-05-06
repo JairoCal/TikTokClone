@@ -19,7 +19,12 @@ function Videos() {
     <div className="right_nav">
       <div className="video_container">
         {friendsFeed.length > 0 &&
-          friendsFeed.map((video) => <div>{video.description}</div>)}
+          friendsFeed.map((video) => (
+            <div>
+            <p>{video.title}</p>
+              <p>{video.video_url}</p>
+            </div>
+          ))}
       </div>
       <div className="comments_container">
         <div className="comments_header">
