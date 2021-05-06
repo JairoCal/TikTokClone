@@ -18,11 +18,10 @@ function LeftNavBar() {
 
   return (
     <nav className="left_navbar">
-      <div>
+      <div className="left_navbar_header">
         <h1>Following!</h1>
       </div>
       <div>
-        <h1>These are the people I follow!</h1>
         <ul>
             {following.length > 0 && following.map((following) => (
                 <div>

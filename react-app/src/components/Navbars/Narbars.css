@@ -15,7 +15,14 @@ h1 {
   height: 94.15vh;
   position: fixed;
   top: 0;
-  box-sizing: inherit
+  box-sizing: inherit;
+  width: 25%
+}
+
+.left_navbar_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bottom_navbar {
