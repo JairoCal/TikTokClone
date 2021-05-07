@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { uploadVideo } from "../../store/uploadvideo";
 
+import loading from '../../images/loading.gif'
+
 function VideoForm() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -10,14 +12,19 @@ function VideoForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [video, setVideo] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
 
-  const onUpload = (e) => {
+  const onUpload = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("video", video);
     if (user) {
       const userId = user.id;
-      dispatch(uploadVideo(userId, title, description, video));
+      console.log("uploading...");
+      setImageLoading(true);
+      await dispatch(uploadVideo(userId, title, description, video));
+      setImageLoading(false);
+      console.log("finished uploading!");
     }
   };
 
@@ -65,6 +72,11 @@ function VideoForm() {
         ></input>
       </div>
       <button type="submit">Upload</button>
+      {imageLoading && 
+        <div>
+        <img className='loading_image' src={loading}></img>
+        </div>
+      }
     </form>
   );
 }
