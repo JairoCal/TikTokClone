@@ -10,7 +10,6 @@ function Videos() {
   const friendsFeed = useSelector((state) => state.friendsFeed);
   useEffect(() => {
     if (user) {
-      console.log("we here boys");
       dispatch(getFriendsFeed(user.id));
     }
   }, [dispatch]);
