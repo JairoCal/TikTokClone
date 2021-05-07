@@ -17,4 +17,5 @@
 }
 .video_container {
     width: 100%;
+    overflow: scroll; 
 }
