@@ -3,6 +3,8 @@ import  { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 
+import './auth.css'
+
 const LoginForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
@@ -31,7 +33,7 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form className="login_form" onSubmit={onLogin}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>

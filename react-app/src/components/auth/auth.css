@@ -1,0 +1,12 @@
+.login_form, .signup_form, .video_form {
+    position: absolute;
+    margin-left: 310px;
+    margin-top: 40%;
+    border: 3px solid black;
+    padding: 3px;
+}
+
+.loading_image {
+    height: 60px;
+    width: 60px;
+}
