@@ -64,7 +64,8 @@ class User(db.Model, UserMixin):
             "profile_image": self.profile_image,
             "firstName": self.firstName,
             "lastName": self.lastName,
-            "about": self.about
+            "about": self.about,
+            "categories": [category.to_dict() for category in self.categories],
         }
 
 # ----------------------Category Class Table -----------------------------
@@ -121,4 +122,6 @@ class Video(db.Model):
             "title": self.title,
             "description": self.description,
             "video_url": self.video_url,
+            "categories": [category.to_dict() for category in self.categories_video],
+            "comments": [comment.to_dict() for comment in self.comment_video],
         }

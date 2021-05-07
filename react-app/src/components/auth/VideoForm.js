@@ -44,7 +44,7 @@ function VideoForm() {
   return (
     <form className="video_form" onSubmit={onUpload}>
       <div>
-        <labe>Title</labe>
+        <label>Title</label>
         <input
           type="text"
           name="title"

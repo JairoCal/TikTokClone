@@ -18,5 +18,29 @@ def user_categories(user_id):
     return {"user_categories": [category.to_dict() for category in categories_list]}
 
 
-# Make another query like the one before except we will implement grabbing all of the videos
-# that are linked to the return of those categories
+# Query for all the videos with relation to the categories that the user
+# logged in user follows
+@category_routes.route('/videos/user/<user_id>')
+def category_videos(user_id):
+    # will hold a list with all the IDs of the categories the user follows [2,5..]
+    category_id_list = []
+    category_videos_list = []
+    user = User.query.filter(User.id == user_id).first()
+    # At this point we have an object with an array inside full of objects
+    # for each category the user follows
+    categories = {"categories": user.to_dict()["categories"]}
+    # {"categories": [{info},{info},{info}...]}
+    for category in categories["categories"]:
+        category_id_list.append(category["id"])
+    all_videos = Video.query.all()
+    all_videos_obj = {"all_videos": [video.to_dict() for video in all_videos]}
+    # we have access to each videos individual object (that holds everything)
+    for video in all_videos_obj["all_videos"]:
+        for category in video["categories"]:
+            category_id = category["id"]
+            # if each video has a category_id that matches one of the videos
+            # the user follows from the category_id_list then we add that video
+            # to list of videos that we will render
+            if category_id in category_id_list:
+                category_videos_list.append(video)
+    return {"category_videos": category_videos_list}

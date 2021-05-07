@@ -12,21 +12,25 @@ const NavBar = () => {
           Home
         </NavLink>
       </div>
-      <div>
+      {!user && 
+        <div>
         <NavLink to="/login" exact={true} activeClassName="active">
-          Login
+        Login
         </NavLink>
-      </div>
-      <div>
+        </div>
+      }
+      {!user && 
+        <div>
         <NavLink to="/sign-up" exact={true} activeClassName="active">
-          Sign Up
+        Sign Up
         </NavLink>
-      </div>
+        </div>
+      }
+      {user && 
       <div>
-        <NavLink to="/users" exact={true} activeClassName="active">
-          Users
-        </NavLink>
+      <NavLink to="/upload" exact={true} activeClassName="active">Upload Video</NavLink>
       </div>
+      }
       <div className="user_logout_container">
         <div>
           {user && (

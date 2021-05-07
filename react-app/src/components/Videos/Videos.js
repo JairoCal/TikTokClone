@@ -20,6 +20,7 @@ function Videos() {
         {friendsFeed.length > 0 &&
           friendsFeed.map((video) => (
             <div>
+            <video width="500px" src={video.video_url} controls></video>
             <p>{video.title}</p>
               <p>{video.video_url}</p>
             </div>
