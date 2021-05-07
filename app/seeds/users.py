@@ -50,11 +50,16 @@ def seed_users_videos_categories():
     db.session.add(jairo)
 
     # ------------------Videos----------------------------------
-    hp_trailer = Video(user_id=2, title='Hogwarts Legacy Trailer',
-                       description='Experience a new story set at #Hogwarts​ in the 1800s. Your character is a student who holds the key to an ancient secret that threatens to tear the wizarding world apart. Make allies, battle Dark wizards and decide the fate of the wizarding world.', video_url='https://www.youtube.com/watch?v=1O6Qstncpnc&t=5s', created_at=datetime.now())
-    same_trailer = Video(user_id=3, title='Hogwarts Legacy Trailer', description='Experience a new story set at #Hogwarts​ in the 1800s. Your character is a student who holds the key to an ancient secret that threatens to tear the wizarding world apart. Make allies, battle Dark wizards and decide the fate of the wizarding world.', video_url='https://www.youtube.com/watch?v=1O6Qstncpnc&t=5s', created_at=datetime.now())
-    hp_trailer.categories_video.append(gaming)
-    same_trailer.categories_video.append(gaming)
+    trailer = Video(user_id=3, title='Hogwarts Legacy Trailer',
+                    description='Trailer for the new Harry Potter Game', video_url='https://tiktokclonejairo.s3.amazonaws.com/5aac0ee89f55467e93f2b4c13060be11.mp4', created_at=datetime.now())
+    same_trailer = Video(user_id=1, title='Worst Translator', description='Small skit from comedy central (do not own the rights)',
+                         video_url='https://tiktokclonejairo.s3.amazonaws.com/12496f16716c4d0fa18964277a41efb3.mp4', created_at=datetime.now())
+    trailer3 = Video(user_id=1, title='Substitute Teacher', description='Small skit from comedy central (do not own the rights)',
+                     video_url='https://tiktokclonejairo.s3.amazonaws.com/dd9ebb37edc64550a38f5cd385da79b7.mp4', created_at=datetime.now())
+
+    trailer.categories_video.append(gaming)
+    same_trailer.categories_video.append(comedy)
+    trailer3.categories_video.append(gaming)
 
     db.session.commit()
 
