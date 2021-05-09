@@ -76,13 +76,13 @@ function Videos() {
           <div className="video_container">
             <div className="buttons_container">
               <div>
-                <button onClick={onFriendsFeed}>Friends Feed</button>
+                <a onClick={onFriendsFeed}>Friends Feed</a>
               </div>
               <div>
-                <button onClick={onForYou}>For You</button>
+                <a onClick={onForYou}>For You</a>
               </div>
               <div>
-                <button onClick={onAllFeed}>Explore</button>
+                <a onClick={onAllFeed}>Explore</a>
               </div>
             </div>
             {allFeed?.map((video) => (
