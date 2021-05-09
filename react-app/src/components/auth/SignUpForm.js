@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
+import { hideModal } from "../../store/modal";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
+  let history = useHistory();
   const user = useSelector((state) => state.session.user);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -24,6 +26,8 @@ const SignUpForm = () => {
       await dispatch(
         signUp(username, email, firstName, lastName, about, image, password)
       );
+      dispatch(hideModal());
+      history.push("/");
     }
   };
 
