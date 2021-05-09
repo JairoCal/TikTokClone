@@ -5,6 +5,7 @@ body {
 
 h1 {
   margin: 0;
+  font-size: 2em;;
 }
 
 a:link {
@@ -67,4 +68,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.followed_name {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #C5C6C7;
 }

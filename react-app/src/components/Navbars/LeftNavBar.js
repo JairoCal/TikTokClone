@@ -19,16 +19,18 @@ function LeftNavBar() {
   return (
     <nav className="left_navbar">
       <div className="left_navbar_header">
-        <h1>Following!</h1>
+        <h1>Following</h1>
       </div>
       <div>
-        <ul>
-            {following.length > 0 && following.map((following) => (
-                <div>
-                    {following.username}
-                </div>
-            ))}
-        </ul>
+      {user && following.length > 0 &&
+        following.length > 0 &&
+          following.map((following) => (
+            <div className="followed_name">
+            <img src={following.profile_image}></img>
+            <p>@{following.username}</p>
+            </div>
+            ))
+          }
       </div>
     </nav>
   );
