@@ -55,10 +55,11 @@ html {
   height: 100%;
 }
 
-
 .video_footer {
   position: relative;
   color: white;
   z-index: 100;
   bottom: 125px;
+  margin-left: 15px;
 }
+

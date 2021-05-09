@@ -95,7 +95,7 @@ function Videos() {
                 <div className="video_footer">
                   <div className="video_footer_text">
                     <h3>@{video.user[0].username}</h3>
-                    <h4>{video.title}</h4>
+                    <p>{video.title}</p>
                     <p>{video.description}</p>
                   </div>
                 </div>
