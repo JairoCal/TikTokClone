@@ -19,19 +19,16 @@ function Videos() {
   const onVideoClick = () => {
     if (playing) {
       videoRef.current.pause();
-      console.log(videoRef.current, "I am the reference! -----------------------");
       setPlaying(false);
     } else {
       videoRef.current.play();
-      console.log(videoRef.current, "I am the reference when not playing! -----------------------");
       setPlaying(true);
     }
   };
 
   const onClick = (e) => {
-    console.log(e.target, "i am the target")
     videoRef.current = e.target
-    console.log(videoRef.current, "please be updated")
+    console.log(e.target, "i am the target")
     onVideoClick()
   }
 
@@ -67,29 +64,30 @@ function Videos() {
   const onAllFeed = async (e) => {
     e.preventDefault();
     setPage(0);
+    
   };
 
   return (
     <div className="right_nav">
       <div className="center_container">
-        <div className="buttons_container">
-          <div>
-            <button onClick={onFriendsFeed}>Friends Feed</button>
-          </div>
-          <div>
-            <button onClick={onForYou}>For You</button>
-          </div>
-          <div>
-            <button onClick={onAllFeed}>Explore</button>
-          </div>
-        </div>
         {allFeed.length > 0 && page === 0 && (
           <div className="video_container">
+            <div className="buttons_container">
+              <div>
+                <button onClick={onFriendsFeed}>Friends Feed</button>
+              </div>
+              <div>
+                <button onClick={onForYou}>For You</button>
+              </div>
+              <div>
+                <button onClick={onAllFeed}>Explore</button>
+              </div>
+            </div>
             {allFeed?.map((video) => (
               <div className="video_holder">
                 <video
-                id={video.id}
-                key={video.id}
+                  id={video.id}
+                  key={video.id}
                   onClick={onClick}
                   className="video_player"
                   src={video.video_url}
@@ -102,18 +100,54 @@ function Videos() {
 
         {friendsFeed.length > 0 && page === 1 && (
           <div className="video_container">
-            {friendsFeed?.map((video) => (
+            <div className="buttons_container">
               <div>
-                <video loop src={video.video_url}></video>
+                <button onClick={onFriendsFeed}>Friends Feed</button>
+              </div>
+              <div>
+                <button onClick={onForYou}>For You</button>
+              </div>
+              <div>
+                <button onClick={onAllFeed}>Explore</button>
+              </div>
+            </div>
+            {friendsFeed?.map((video) => (
+              <div className="video_holder">
+                <video
+                  id={video.id}
+                  key={video.id}
+                  onClick={onClick}
+                  className="video_player"
+                  src={video.video_url}
+                  ref={videoRef}
+                ></video>
               </div>
             ))}
           </div>
         )}
         {categoriesFeed.length > 0 && page === 2 && (
           <div className="video_container">
-            {categoriesFeed?.map((video) => (
+            <div className="buttons_container">
               <div>
-                <video loop src={video.video_url}></video>
+                <button onClick={onFriendsFeed}>Friends Feed</button>
+              </div>
+              <div>
+                <button onClick={onForYou}>For You</button>
+              </div>
+              <div>
+                <button onClick={onAllFeed}>Explore</button>
+              </div>
+            </div>
+            {categoriesFeed?.map((video) => (
+              <div className="video_holder">
+                <video
+                  id={video.id}
+                  key={video.id}
+                  onClick={onClick}
+                  className="video_player"
+                  src={video.video_url}
+                  ref={videoRef}
+                ></video>
               </div>
             ))}
           </div>

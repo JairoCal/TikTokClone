@@ -33,13 +33,18 @@ html {
 }
 
 .buttons_container {
-  position: absolute;
+  position: sticky;
+  top: 0px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  min-width: 500px;
+  z-index: 10;
+  border: 1px solid blue
 }
 .center_container {
-  min-width: 500px;
+  width: 100%;
 }
 
 .video_holder {
