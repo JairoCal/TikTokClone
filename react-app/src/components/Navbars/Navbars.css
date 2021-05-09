@@ -14,7 +14,6 @@ img {
 }
 
 .left_navbar {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   float: left;
@@ -32,7 +31,7 @@ img {
 }
 
 .bottom_navbar {
-  border: 1px solid blue;
+
   display: flex;
   flex-direction: row;
   height: 5vh;

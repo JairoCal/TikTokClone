@@ -5,12 +5,10 @@ html {
 .right_nav {
   display: flex;
   margin-left: 250px;
-  border: 1px solid black;
   height: 94.55vh;
 }
 
 .comments_container {
-  border: 1px solid red;
   min-width: 250px;
 }
 
@@ -25,7 +23,7 @@ html {
   overflow: scroll;
   height: 100%;
   scroll-snap-type: y mandatory;
-  background-color: white;
+  background-color: black;
 }
 
 .video_container::-webkit-scrollbar {
@@ -34,14 +32,13 @@ html {
 
 .buttons_container {
   position: sticky;
-  top: 0px;
+  top: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
   min-width: 500px;
   z-index: 10;
-  border: 1px solid blue
 }
 .center_container {
   width: 100%;
