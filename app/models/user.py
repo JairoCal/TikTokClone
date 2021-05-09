@@ -124,4 +124,5 @@ class Video(db.Model):
             "video_url": self.video_url,
             "categories": [category.to_dict() for category in self.categories_video],
             "comments": [comment.to_dict() for comment in self.comment_video],
+            "user": [self.users.to_dict()]
         }

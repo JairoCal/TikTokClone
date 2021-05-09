@@ -27,10 +27,10 @@ function Videos() {
   };
 
   const onClick = (e) => {
-    videoRef.current = e.target
-    console.log(e.target, "i am the target")
-    onVideoClick()
-  }
+    videoRef.current = e.target;
+    console.log(e.target, "i am the target");
+    onVideoClick();
+  };
 
   // grabs the Friends Feed videos
   useEffect(() => {
@@ -64,7 +64,6 @@ function Videos() {
   const onAllFeed = async (e) => {
     e.preventDefault();
     setPage(0);
-    
   };
 
   return (
@@ -93,6 +92,13 @@ function Videos() {
                   src={video.video_url}
                   ref={videoRef}
                 ></video>
+                <div className="video_footer">
+                  <div className="video_footer_text">
+                    <h3>@{video.user[0].username}</h3>
+                    <h4>{video.title}</h4>
+                    <p>{video.description}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -121,6 +127,13 @@ function Videos() {
                   src={video.video_url}
                   ref={videoRef}
                 ></video>
+                <div className="video_footer">
+                  <div className="video_footer_text">
+                    <h3>@{video.user[0].username}</h3>
+                    <h4>{video.title}</h4>
+                    <p>{video.description}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -148,6 +161,13 @@ function Videos() {
                   src={video.video_url}
                   ref={videoRef}
                 ></video>
+                <div className="video_footer">
+                  <div className="video_footer_text">
+                    <h3>@{video.user[0].username}</h3>
+                    <h4>{video.title}</h4>
+                    <p>{video.description}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
