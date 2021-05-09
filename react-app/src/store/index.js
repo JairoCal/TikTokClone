@@ -3,12 +3,16 @@ import thunk from 'redux-thunk';
 import session from './session'
 import following from './following'
 import friendsFeed from './friendsfeed'
+import categoriesFeed from './foryou'
+import allVideos from './allvideos'
 
 
 const rootReducer = combineReducers({
     session,
     following,
     friendsFeed,
+    categoriesFeed,
+    allVideos
 });
 
 let enhancer;

@@ -1,20 +1,103 @@
+html {
+  scroll-snap-type: y mandatory;
+}
+
 .right_nav {
   display: flex;
   margin-left: 250px;
-  border: 1px solid black;
-  height: 94.55vh;
+  height: 95vh;
+  background-color: #1F2833;
+  color: #45a29e;
 }
 
 .comments_container {
-  border: 1px solid red;
   min-width: 250px;
 }
 
 .comments_header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .video_container {
-    width: 100%;
+  position: relative;
+  width: 100%;
+  overflow: scroll;
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  background-color: black;
+  border-radius: 10px;
+  border-left: 1px solid #C5C6C7;;
+  border-right: 1px solid #C5C6C7;;
+}
+
+.video_container::-webkit-scrollbar {
+  display: none;
+}
+
+.buttons_container {
+  position: sticky;
+  top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-width: 500px;
+  z-index: 10;
+}
+.center_container {
+  width: 100%;
+  /* border-left: 1px solid #C5C6C7; */
+  /* border-right: 1px solid #C5C6C7; */
+}
+
+.video_holder {
+  height: 95vh;
+  scroll-snap-align: start;
+}
+
+.video_player {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
+
+.video_footer {
+  position: relative;
+  color: white;
+  z-index: 100;
+  bottom: 145px;
+  margin-left: 15px;
+}
+
+.music_icon {
+  position: absolute;
+  margin-top: 13px;
+}
+.video_ticker > .ticker {
+  height: fit-content;
+  margin-left: 25px;
+  width: 55%;
+}
+
+.spinning_wheel_holder {
+  position: absolute;
+  z-index: 100;
+  bottom: 10px;
+  right: 15px;
+}
+.spinning_wheel {
+  height: 50px;
+  width: 50px;
+  animation: spinRecord infinite 5s linear;
+  filter: invert(1);
+}
+
+@keyframes spinRecord {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

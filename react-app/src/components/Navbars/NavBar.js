@@ -12,36 +12,37 @@ const NavBar = () => {
           Home
         </NavLink>
       </div>
-      {!user && 
+      {!user && (
         <div>
-        <NavLink to="/login" exact={true} activeClassName="active">
-        Login
-        </NavLink>
+          <NavLink to="/login" exact={true} activeClassName="active">
+            Login
+          </NavLink>
         </div>
-      }
-      {!user && 
+      )}
+      {!user && (
         <div>
-        <NavLink to="/sign-up" exact={true} activeClassName="active">
-        Sign Up
-        </NavLink>
+          <NavLink to="/sign-up" exact={true} activeClassName="active">
+            Sign Up
+          </NavLink>
         </div>
-      }
-      {user && 
-      <div>
-      <NavLink to="/upload" exact={true} activeClassName="active">Upload Video</NavLink>
-      </div>
-      }
+      )}
+      {user && (
+        <div>
+          <NavLink to="/upload" exact={true} activeClassName="active">
+            Upload Video
+          </NavLink>
+        </div>
+      )}
       <div className="user_logout_container">
         <div>
           {user && (
             <div className="user_info">
               <img src={user.profile_image}></img>
-              <p>{user.email}</p>
+              <NavLink to="/myprofile" exact={true} activeClassName="active">
+                {user.username}
+              </NavLink>
             </div>
           )}
-        </div>
-        <div>
-          <LogoutButton />
         </div>
       </div>
     </nav>

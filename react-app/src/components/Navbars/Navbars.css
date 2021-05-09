@@ -5,6 +5,21 @@ body {
 
 h1 {
   margin: 0;
+  font-size: 2em;;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a {
+  color: #66fcf1;
+  font-weight: bold;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 img {
@@ -14,15 +29,16 @@ img {
 }
 
 .left_navbar {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   float: left;
-  height: 94.55vh;
+  height: 95vh;
   position: fixed;
   top: 0;
   box-sizing: inherit;
   width: 250px;
+  background-color: #1F2833;
+  color: #45a29e;
 }
 
 .left_navbar_header {
@@ -32,7 +48,6 @@ img {
 }
 
 .bottom_navbar {
-  border: 1px solid blue;
   display: flex;
   flex-direction: row;
   height: 5vh;
@@ -42,10 +57,21 @@ img {
   justify-content: space-around;
   align-items: center;
   box-sizing: inherit;
+  background-color: #1F2833;
+  color: #45a29e;
+  border-top: 1px solid #C5C6C7;
+  z-index: 1000;
 }
 
-.user_logout_container, .user_info{
+.user_logout_container,
+.user_info {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.followed_name {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #C5C6C7;
 }

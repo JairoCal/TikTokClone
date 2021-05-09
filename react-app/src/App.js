@@ -12,6 +12,7 @@ import { authenticate } from "./store/session";
 import LeftNavBar from "./components/Navbars/LeftNavBar";
 import Videos from "./components/Videos/Videos";
 import VideoForm from "./components/auth/VideoForm";
+import ProfilePage from "./components/profilepage/ProfilePage";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -49,8 +50,11 @@ function App() {
         <ProtectedRoute path="/upload" exact={true}>
           <VideoForm />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true}>
+        <Route path="/" exact={true}>
           <Videos />
+        </Route>
+        <ProtectedRoute path="/myprofile" exact={true}>
+          <ProfilePage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
