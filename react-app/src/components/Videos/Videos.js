@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { getFriendsFeed } from "../../store/friendsfeed";
 import { getAllVideos } from "../../store/allvideos";
 import { getCategoriesFeed } from "../../store/foryou";
+import Ticker from "react-ticker";
+// Import Icons
+import MusicNoteOutlinedIcon from "@material-ui/icons/MusicNoteOutlined";
 import "./videos.css";
 
 function Videos() {
@@ -95,8 +98,23 @@ function Videos() {
                 <div className="video_footer">
                   <div className="video_footer_text">
                     <h3>@{video.user[0].username}</h3>
-                    <p>{video.title}</p>
                     <p>{video.description}</p>
+                    <div className="video_ticker">
+                      <MusicNoteOutlinedIcon className="music_icon" />
+                      <Ticker mode="smooth">
+                        {({ index }) => (
+                          <>
+                            <p>{video.title}</p>
+                          </>
+                        )}
+                      </Ticker>
+                    </div>
+                    <div className="spinning_wheel_holder">
+                      <img
+                        className="spinning_wheel"
+                        src="https://static.thenounproject.com/png/934821-200.png"
+                      ></img>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -130,8 +148,8 @@ function Videos() {
                 <div className="video_footer">
                   <div className="video_footer_text">
                     <h3>@{video.user[0].username}</h3>
-                    <h4>{video.title}</h4>
                     <p>{video.description}</p>
+                    <h4>{video.title}</h4>
                   </div>
                 </div>
               </div>

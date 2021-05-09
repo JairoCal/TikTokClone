@@ -59,7 +59,38 @@ html {
   position: relative;
   color: white;
   z-index: 100;
-  bottom: 125px;
+  bottom: 145px;
   margin-left: 15px;
 }
 
+.music_icon{
+  position: absolute;
+  margin-top: 13px
+}
+.video_ticker > .ticker {
+  height: fit-content;
+  margin-left: 25px;
+  width: 55%
+}
+
+.spinning_wheel_holder {
+  position: absolute;
+  z-index: 100;
+  bottom: 10px;
+  right: 15px;
+}
+.spinning_wheel{
+  height: 50px;
+  width: 50px;
+  animation: spinRecord infinite 5s linear;
+  filter: invert(1)
+}
+
+@keyframes spinRecord {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
