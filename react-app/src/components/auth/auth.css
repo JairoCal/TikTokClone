@@ -1,4 +1,195 @@
 .loading_image {
-    height: 60px;
-    width: 60px;
+  height: 60px;
+  width: 60px;
+}
+
+.login_form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+.login_form h2 {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.login_form h2:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 50px;
+  height: 4px;
+  background: #fff;
+}
+
+.login_form .login_input {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.login_form .login_input input {
+  width: 90%;
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.login_form .login_input input::placeholder {
+  color: #fff;
+}
+
+.login_form .login_input input[type="submit"] {
+  background: #fff;
+  color: #666;
+  border: none;
+  font-weight: 600;
+  max-width: 100px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.square {
+  position: absolute;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  animation: movement 10s linear infinite;
+  z-index: 1000;
+}
+
+@keyframes movement {
+  0%,
+  100% {
+    transform: translateY(-25px);
+  }
+  50% {
+    transform: translateY(25px);
+  }
+}
+
+.square_1 {
+  top: -45px;
+  left: 370px;
+  height: 75px;
+  width: 75px;
+  animation-delay: -1s;
+}
+.square_2 {
+  top: 150px;
+  left: -80px;
+  height: 100px;
+  width: 100px;
+  animation-delay: -2s;
+}
+.square_3 {
+  top: 285px;
+  left: 380px;
+  height: 60px;
+  width: 60px;
+  animation-delay: -3s;
+
+}
+.square_4 {
+  top: -80px;
+  left: 80px;
+  height: 40px;
+  width: 40px;
+  animation-delay: -4s;
+
+}
+.square_5 {
+  top: 430px;
+  left: 100px;
+  height: 55px;
+  width: 55px;
+  animation-delay: -5s;
+
+}
+
+.signup_form {
+  height: 60px;
+  width: 60px;
+}
+
+.signup_form, .login_form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+.signup_form h2{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.signup_form h2:before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 50px;
+  height: 4px;
+  background: #fff;
+}
+
+.signup_form .sign_input{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.signup_form .sign_input input{
+  width: 90%;
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 35px;
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.signup_form .signup_input input::placeholder{
+  color: #fff;
+}
+
+.signup_form .signup_input input[type="submit"]{
+  background: #fff;
+  color: #666;
+  border: none;
+  font-weight: 600;
+  max-width: 100px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
