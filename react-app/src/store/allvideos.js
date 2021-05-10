@@ -8,7 +8,7 @@ const getVideos = (allVideos) => ({
 
 //thunk
 export const getAllVideos = () => async (dispatch) => {
-  const response = await fetch(`/api/videos/`);
+  const response = await fetch(`/api/videos`);
   if (response.ok) {
     const allVideos = await response.json();
     dispatch(getVideos(allVideos));
