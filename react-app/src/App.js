@@ -11,6 +11,7 @@ import LeftNavBar from "./components/Navbars/LeftNavBar";
 import Videos from "./components/Videos/Videos";
 import ProfilePage from "./components/profilepage/ProfilePage";
 import Modal from './components/Modal/index'
+import PrivateMessages from "./components/PrivateMessages/PrivateMessages";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -45,6 +46,12 @@ function App() {
         </Route>
         <ProtectedRoute path="/myprofile" exact={true}>
           <ProfilePage />
+        </ProtectedRoute>
+        <ProtectedRoute path="/privatemessages" exact={true}>
+          <PrivateMessages />
+        </ProtectedRoute>
+        <ProtectedRoute path="/privatemessages/:receiver_id" exact={true}>
+          <PrivateMessages />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
