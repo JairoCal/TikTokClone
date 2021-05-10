@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import Moment from "react-moment";
 import "moment-timezone";
 
@@ -22,9 +22,7 @@ function DirectMessagesText(props) {
       user.roomId = props.roomId;
       if (props.currentRecipientId !== null) {
         user.receiver_id = Number(props.currentRecipientId);
-        console.log(props.currentRecipientId);
       } else {
-        console.log(props.receiver_id);
         user.receiver_id = Number(props.receiver_id);
       }
       user.sender_id = user.id;
@@ -43,7 +41,6 @@ function DirectMessagesText(props) {
     if (thing === null) {
       setStateMessages(messages);
     } else {
-      console.log(stateMessages, "state messages are here*************");
       setStateMessages([...stateMessages, thing]);
     }
   }, [messages.length, thing]);
@@ -61,10 +58,9 @@ function DirectMessagesText(props) {
           stateMessages.map((message) => (
             <div className="message_holder">
               <div className="user_image_box">
-              {console.log(message)}
                 <img
                   className="user_image_message"
-                  src={message.profile_picture ? message.profile_picture : ""}
+                  src={message.profile_image? message.profile_image: ""}
                 ></img>
               </div>
               <div className="message_box">

@@ -36,7 +36,7 @@ def get_private_messages_handler(user_id, receiver_id):
     user_id = int(user_id)
     receiver_id = int(receiver_id)
     private_messages = PrivateMessage.query.filter(or_(and_(PrivateMessage.sender_id == user_id, PrivateMessage.receiver_id == receiver_id), and_(
-        PrivateMessage.sender_id == receiver_id, PrivateMessage.receiver_id == user_id))).order_by(PrivateMessage.created_at.asc()).all()
+        PrivateMessage.sender_id == receiver_id, PrivateMessage.receiver_id == user_id))).order_by(PrivateMessage.created_at.desc()).all()
     private_messages_dict = [private_message.to_dict()
                              for private_message in private_messages]
     for message in private_messages_dict:
@@ -47,6 +47,7 @@ def get_private_messages_handler(user_id, receiver_id):
         user_object = current_user.to_dict()
         # add the key-value to the message dictionary
         message['username'] = user_object['username']
+        message['profile_image'] = user_object['profile_image']
         try:
             message['profile_picture'] = user_object['profile_picture']
         except:

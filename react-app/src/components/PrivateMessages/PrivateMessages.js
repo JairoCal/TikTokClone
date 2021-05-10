@@ -21,7 +21,6 @@ function PrivateMessages() {
   useEffect(async () => {
     let data = await dispatch(getPrivateMessageRecipients(user.id));
     setRecipientList(data.recipients);
-    console.log(user.id, data.recipients);
   }, [dispatch, receiver_id]);
 
   // On clicking on a user from our messaged users list
