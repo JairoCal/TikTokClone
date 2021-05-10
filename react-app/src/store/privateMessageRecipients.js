@@ -1,12 +1,12 @@
 const GET_PRIVATE_MESSAGE_RECIPIENTS =
   "privateMessages/GET_PRIVATE_MESSAGE_RECIPIENTS";
-
+// Action
 const getThePrivateMessageRecipients = (privateMessageRecipients) => ({
   type: GET_PRIVATE_MESSAGE_RECIPIENTS,
   payload: privateMessageRecipients,
 });
 
-//thunk
+// Thunk
 export const getPrivateMessageRecipients = (userId) => async (dispatch) => {
   const response = await fetch(`/api/private_messages/${userId}`);
   if (response.ok) {
@@ -18,9 +18,7 @@ export const getPrivateMessageRecipients = (userId) => async (dispatch) => {
   return null;
 };
 
-// reducer
-// const initialState = {};
-
+// Reducer
 export default function private_MessageRecipientsReducer(
   state = { recipients: {} },
   action

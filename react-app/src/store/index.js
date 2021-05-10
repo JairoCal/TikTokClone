@@ -6,15 +6,22 @@ import friendsFeed from './friendsfeed'
 import categoriesFeed from './foryou'
 import allVideos from './allvideos'
 import modal from './modal'
+import privateMessageRecipients from "./privateMessageRecipients";
+import privateMessages from "./ PrivateMessages";
+
+
+
 
 
 const rootReducer = combineReducers({
-    session,
-    following,
-    friendsFeed,
-    categoriesFeed,
-    allVideos,
-    modal
+  session,
+  following,
+  friendsFeed,
+  categoriesFeed,
+  allVideos,
+  modal,
+  privateMessageRecipients,
+  privateMessages,
 });
 
 let enhancer;

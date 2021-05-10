@@ -29,3 +29,26 @@ def private_messages_recipient_handler(user_id):
         if current_recipient['id'] != int(user_id):
             final_recipients.append(current_recipient)
     return {"recipients": final_recipients}
+
+
+@private_messages_routes.route('/<user_id>/<receiver_id>')
+def get_private_messages_handler(user_id, receiver_id):
+    user_id = int(user_id)
+    receiver_id = int(receiver_id)
+    private_messages = PrivateMessage.query.filter(or_(and_(PrivateMessage.sender_id == user_id, PrivateMessage.receiver_id == receiver_id), and_(
+        PrivateMessage.sender_id == receiver_id, PrivateMessage.receiver_id == user_id))).order_by(PrivateMessage.created_at.asc()).all()
+    private_messages_dict = [private_message.to_dict()
+                             for private_message in private_messages]
+    for message in private_messages_dict:
+        # Grab the user from the database with a query
+        current_user = User.query.filter(
+            User.id == message['sender_id']).first()
+        # turn it into an object
+        user_object = current_user.to_dict()
+        # add the key-value to the message dictionary
+        message['username'] = user_object['username']
+        try:
+            message['profile_picture'] = user_object['profile_picture']
+        except:
+            pass
+    return {"privateMessages": private_messages_dict}

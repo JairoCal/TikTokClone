@@ -25,7 +25,7 @@ function LeftNavBar() {
       {user && following.length > 0 &&
         following.length > 0 &&
           following.map((following) => (
-            <div className="followed_name">
+            <div key={following.username}className="followed_name">
             <img src={following.profile_image}></img>
             <p>@{following.username}</p>
             </div>
