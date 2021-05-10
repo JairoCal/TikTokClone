@@ -4,6 +4,8 @@ import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import { hideModal } from "../../store/modal";
 
+import "./auth.css";
+
 const SignUpForm = () => {
   const dispatch = useDispatch();
   let history = useHistory();
@@ -69,79 +71,93 @@ const SignUpForm = () => {
   }
 
   return (
-    <form className="signup_form" onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>First Name</label>
-        <input
-          type="text"
-          name="firstName"
-          onChange={updateFirstName}
-          value={firstName}
-        ></input>
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input
-          type="text"
-          name="lastName"
-          onChange={updateLastName}
-          value={lastName}
-        ></input>
-      </div>
-      <div>
-        <label>About</label>
-        <textarea name="about" onChange={updateAbout} value={about}></textarea>
-      </div>
-      <div className="signup_div_image">
-        <label>Image</label>
-        <input
-          name="profile_image"
-          type="file"
-          placeholder="Select Image"
-          accept="image/*"
-          onChange={updateImage}
-          className="singup_input_image"
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type="submit">Sign Up</button>
-    </form>
+    <div className="signup_form">
+      <div className="square_1 square"></div>
+      <div className="square_2 square"></div>
+      <div className="square_3 square"></div>
+      <div className="square_4 square"></div>
+      <div className="square_5 square"></div>
+      <h2>SignUp</h2>
+      <form onSubmit={onSignUp}>
+        <div></div>
+        <div className="signup_input">
+          <input
+            placeholder="Username"
+            type="text"
+            name="username"
+            onChange={updateUsername}
+            value={username}
+          ></input>
+        </div>
+        <div className="signup_input">
+          <input
+            placeholder="Email"
+            type="text"
+            name="email"
+            onChange={updateEmail}
+            value={email}
+          ></input>
+        </div>
+        <div className="signup_input">
+          <input
+            placeholder="First Name"
+            type="text"
+            name="firstName"
+            onChange={updateFirstName}
+            value={firstName}
+          ></input>
+        </div>
+        <div className="signup_input">
+          <input
+            placeholder="Last Name"
+            type="text"
+            name="lastName"
+            onChange={updateLastName}
+            value={lastName}
+          ></input>
+        </div>
+        <div className="signup_input">
+          <textarea
+            placeholder="About"
+            name="about"
+            onChange={updateAbout}
+            value={about}
+          ></textarea>
+        </div>
+        <div className="signup_div_image">
+          <input
+            name="profile_image"
+            type="file"
+            placeholder="Select Image"
+            accept="image/*"
+            onChange={updateImage}
+            className="signup_input_image"
+          ></input>
+        </div>
+        <div className="signup_input">
+          <input
+            placeholder="Password"
+            type="password"
+            name="password"
+            onChange={updatePassword}
+            value={password}
+          ></input>
+        </div>
+        <div className="signup_input">
+          <input
+            placeholder="Repeat Password"
+            type="password"
+            name="repeat_password"
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+          ></input>
+        </div>
+        <div className="signup_input">
+          <input type="submit" value="SignUp" />
+        </div>
+      </form>
+    </div>
   );
 };
 

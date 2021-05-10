@@ -22,7 +22,8 @@ function Modal() {
     display &&
     ReactDOM.createPortal(
       <div onClick={onClose} className="modal-background">
-        <div onClick={e => e.stopPropagation()} className="modal-content">
+     
+        <div onClick={(e) => e.stopPropagation()} className="modal-content">
           <Current />
         </div>
       </div>,
