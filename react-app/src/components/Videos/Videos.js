@@ -8,6 +8,7 @@ import Ticker from "react-ticker";
 // Import Icons
 import MusicNoteOutlinedIcon from "@material-ui/icons/MusicNoteOutlined";
 import "./videos.css";
+import Comments from "../Comments/Comments";
 
 function Videos() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function Videos() {
   const friendsFeed = useSelector((state) => state.friendsFeed);
   const categoriesFeed = useSelector((state) => state.categoriesFeed);
   const [page, setPage] = useState(0);
+  const [videoId, setVideoId] = useState(null)
   const videoRef = useRef(null);
 
   const onVideoClick = () => {
@@ -31,6 +33,7 @@ function Videos() {
 
   const onClick = (e) => {
     videoRef.current = e.target;
+    setVideoId(videoRef.current.id);
     onVideoClick();
   };
 
@@ -193,6 +196,9 @@ function Videos() {
       <div className="comments_container">
         <div className="comments_header">
           <h1>Comments!</h1>
+        </div>
+        <div>
+          <Comments videoId={videoId}/>
         </div>
       </div>
     </div>
