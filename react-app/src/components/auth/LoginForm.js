@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import  { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
+import { hideModal } from "../../store/modal";
 
-import './auth.css'
+import "./auth.css";
 
 const LoginForm = () => {
+  let history = useHistory();
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user);
+  const user = useSelector((state) => state.session.user);
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +19,9 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data.errors) {
       setErrors(data.errors);
+    } else {
+      dispatch(hideModal());
+      history.push("/");
     }
   };
 

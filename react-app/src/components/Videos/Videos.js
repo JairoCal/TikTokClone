@@ -31,7 +31,6 @@ function Videos() {
 
   const onClick = (e) => {
     videoRef.current = e.target;
-    console.log(e.target, "i am the target");
     onVideoClick();
   };
 

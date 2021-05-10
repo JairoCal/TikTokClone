@@ -1,10 +1,31 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import LogoutButton from "../auth/LogoutButton";
+import { showModal, setCurrentModal } from "../../store/modal";
+
+import LoginForm from "../auth/LoginForm";
+import SignUpForm from "../auth/SignUpForm";
+import VideoForm from "../auth/VideoForm";
 
 const NavBar = () => {
   const user = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
+
+  const showLogin = () => {
+    dispatch(setCurrentModal(LoginForm));
+    dispatch(showModal());
+  };
+
+  const showSignup =  () => {
+    dispatch(setCurrentModal(SignUpForm))
+    dispatch(showModal());
+  }
+  
+  const showVideoForm =  () => {
+    dispatch(setCurrentModal(VideoForm))
+    dispatch(showModal());
+  }
+
   return (
     <nav className="bottom_navbar">
       <div>
@@ -14,37 +35,31 @@ const NavBar = () => {
       </div>
       {!user && (
         <div>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
+          <a onClick={showLogin}>Login</a>
         </div>
       )}
       {!user && (
         <div>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
+          <a onClick={showSignup}>SignUp</a>
         </div>
       )}
       {user && (
         <div>
-          <NavLink to="/upload" exact={true} activeClassName="active">
-            Upload Video
-          </NavLink>
+          <a onClick={showVideoForm}>Upload Video</a>
         </div>
       )}
-      <div className="user_logout_container">
-        <div>
-          {user && (
+      {user && (
+        <div className="user_logout_container">
+          <div>
             <div className="user_info">
               <img src={user.profile_image}></img>
               <NavLink to="/myprofile" exact={true} activeClassName="active">
                 {user.username}
               </NavLink>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

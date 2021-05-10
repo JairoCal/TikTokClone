@@ -5,6 +5,7 @@ import following from './following'
 import friendsFeed from './friendsfeed'
 import categoriesFeed from './foryou'
 import allVideos from './allvideos'
+import modal from './modal'
 
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     following,
     friendsFeed,
     categoriesFeed,
-    allVideos
+    allVideos,
+    modal
 });
 
 let enhancer;
