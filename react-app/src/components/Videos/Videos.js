@@ -28,6 +28,7 @@ function Videos() {
     } else {
       videoRef.current.play();
       setPlaying(true);
+
     }
   };
 
@@ -35,6 +36,7 @@ function Videos() {
     videoRef.current = e.target;
     setVideoId(videoRef.current.id);
     onVideoClick();
+
   };
 
   // grabs the Friends Feed videos
