@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch, connectAdvanced } from "react-redux";
+import { NavLink } from "react-router-dom";
+
 // Import Dispatches
 import { getFriendsFeed } from "../../store/friendsfeed";
 import { getAllVideos } from "../../store/allvideos";
@@ -115,7 +117,9 @@ function Videos() {
                 ></video>
                 <div className="video_footer">
                   <div className="video_footer_text">
-                    <h3>@{video.user[0].username}</h3>
+                    <NavLink to={`/user/profile/${video.user[0].id}}`}>
+                      @{video.user[0].username}
+                    </NavLink>
                     <p>{video.description}</p>
                     <div className="video_ticker">
                       <MusicNoteOutlinedIcon className="music_icon" />

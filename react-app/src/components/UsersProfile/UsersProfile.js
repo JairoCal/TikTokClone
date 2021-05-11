@@ -14,6 +14,7 @@ function UsersProfile() {
 
   return (
     <div>
+      <style type="text/css">{`.left_navbar {display: none}`}</style>
       <h1>Hi</h1>
     </div>
   );
