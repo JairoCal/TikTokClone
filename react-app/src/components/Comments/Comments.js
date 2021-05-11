@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Moment from "react-moment";
 import "moment-timezone";
+import "./Comments.css";
 
 import { getVideoComments } from "../../store/Comments";
 
@@ -21,23 +22,28 @@ function Comments(props) {
       <div>
         {comments?.length > 0 &&
           comments[0].map((comment) => (
-            <div>
+            <div className="comment_container">
               {console.log(comment)}
               <div className="comment_image">
                 <img src={comment.user[0].profile_image}></img>
               </div>
               <div className="comment_info">
-                <p>{comment.user[0].username}</p>
-                <Moment
-                  local
-                  date={comment.created_at}
-                  format="hh:mm"
-                  tz="Atlantic/Reykjavik"
-                />
-              </div>
-            
-              <div>
-                <p>{comment.message}</p>
+                <div className="comment_top">
+                  <div className="comment_username">
+                    <p>{comment.user[0].username} </p>
+                  </div>
+                  <div className="comment_time">
+                    <Moment
+                      local
+                      date={comment.created_at}
+                      format="hh:mm"
+                      tz="Atlantic/Reykjavik"
+                    />
+                  </div>
+                </div>
+                <div className="comment_message">
+                  <p>{comment.message}</p>
+                </div>
               </div>
             </div>
           ))}

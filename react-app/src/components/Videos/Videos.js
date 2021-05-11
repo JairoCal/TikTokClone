@@ -22,17 +22,15 @@ function Videos() {
   const videoRef = useRef(null);
 
   const onVideoClick = () => {
-    if (playing) {
-      videoRef.current.pause();
-      setPlaying(false);
-    } else {
       videoRef.current.play();
       setPlaying(true);
-
-    }
   };
 
   const onClick = (e) => {
+    if (playing) {
+      videoRef.current.pause();
+      setPlaying(false);
+    }
     videoRef.current = e.target;
     setVideoId(videoRef.current.id);
     onVideoClick();

@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.comment_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-left: 10px;
+}
+
+.comment_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment_top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.comment_image {
+  padding-right: 8px;
+}
+
+.comment_username {
+    font-weight: 700;
+    margin-right: 6px
+}
+.comment_time {
+    font-size: 12px;
+}
