@@ -36,7 +36,7 @@ def seed_users_videos_categories():
             firstName = fake.first_name()
             lastName = fake.last_name()
             about = fake.paragraph(nb_sentences=random.randint(2, 4))
-            profile_image = f"https://source.unsplash.com/random?selfie"
+            profile_image = f"https://source.unsplash.com/random?selfie={random.randint(0,500)}/1920x1080"
             created_at = datetime.now()
 
             seed_user = User(username=username, email=email, password=password, firstName=firstName,
