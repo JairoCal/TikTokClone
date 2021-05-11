@@ -4,26 +4,35 @@ import Moment from "react-moment";
 import "moment-timezone";
 import "./Comments.css";
 
-import { getVideoComments } from "../../store/Comments";
+import { getVideoComments, postComment } from "../../store/Comments";
 
 function Comments(props) {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.videoComments);
+  const user = useSelector((state) => state.session.user);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (props.videoId !== null) {
       let videoId = Number(props.videoId);
       dispatch(getVideoComments(videoId));
     }
-  }, [dispatch, props.videoId]);
+  }, [dispatch, props.videoId, comments]);
+
+  const sendComment = (e) => {
+    e.preventDefault();
+    let video_id = Number(props.videoId);
+    let user_id = Number(user.id)
+    dispatch(postComment(message, video_id, user_id))
+    setMessage("")
+  }
 
   return (
-    <div>
-      <div>
+    <div className="comments_input_holder">
+      <div className="all_comments">
         {comments?.length > 0 &&
           comments[0].map((comment) => (
             <div className="comment_container">
-              {console.log(comment)}
               <div className="comment_image">
                 <img src={comment.user[0].profile_image}></img>
               </div>
@@ -47,6 +56,18 @@ function Comments(props) {
               </div>
             </div>
           ))}
+      </div>
+      <div className="message_bar">
+        <form onSubmit={sendComment} className="comment_form">
+          <textarea
+            className="comment_input"
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Comment..."
+          ></textarea>
+          <button className="comment_button" onClick={sendComment}>Comment</button>
+        </form>
       </div>
     </div>
   );
