@@ -12,6 +12,7 @@ import Videos from "./components/Videos/Videos";
 import ProfilePage from "./components/profilepage/ProfilePage";
 import Modal from './components/Modal/index'
 import PrivateMessages from "./components/PrivateMessages/PrivateMessages";
+import UsersProfile from "./components/UsersProfile/UsersProfile";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -47,6 +48,9 @@ function App() {
         <ProtectedRoute path="/myprofile" exact={true}>
           <ProfilePage />
         </ProtectedRoute>
+        <Route path="/user/profile/:user_id" exact={true}>
+          <UsersProfile />
+        </Route>
         <ProtectedRoute path="/privatemessages" exact={true}>
           <PrivateMessages />
         </ProtectedRoute>
