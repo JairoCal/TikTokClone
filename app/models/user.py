@@ -44,6 +44,9 @@ class User(db.Model, UserMixin):
     # Category relation
     categories = db.relationship(
         'Category', secondary=user_category, back_populates='users', lazy='dynamic')
+    # Comment relation
+    comment_user = db.relationship(
+        'Comment', back_populates='users_comment')
 
     @property
     def password(self):
