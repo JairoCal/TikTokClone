@@ -17,6 +17,7 @@ from .api.follows import follows_routes
 from .api.category import category_routes
 from .api.private_messages import private_messages_routes
 from .api.comments import comments_routes
+from .api.user_info import user_info_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -81,6 +82,7 @@ app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
+app.register_blueprint(user_info_routes, url_prefix='/api/userinfo')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(video_routes, url_prefix='/api/videos')
 app.register_blueprint(follows_routes, url_prefix='/api/follows')

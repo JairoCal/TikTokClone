@@ -9,6 +9,7 @@ import modal from './modal'
 import privateMessageRecipients from "./privateMessageRecipients";
 import privateMessages from "./ PrivateMessages";
 import videoComments from './Comments'
+import userInfo from './UserInfo'
 
 const rootReducer = combineReducers({
   session,
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   modal,
   privateMessageRecipients,
   privateMessages,
-  videoComments
+  videoComments,
+  userInfo
 });
 
 let enhancer;

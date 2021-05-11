@@ -49,6 +49,11 @@ const NavBar = () => {
         </div>
       )}
       {user && (
+        <div>
+          <NavLink to="/privatemessages">DMs</NavLink>
+        </div>
+      )}
+      {user && (
         <div className="user_logout_container">
           <div>
             <div className="user_info">
