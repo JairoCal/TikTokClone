@@ -1,6 +1,9 @@
 # from werkzeug.security import generate_password_hash
 from app.models import db, User, user_category, Category, video_category, Video
 from datetime import datetime
+from faker import Faker
+import random
+fake = Faker()
 
 
 # Adds a demo user, you can add other users here if you want
@@ -24,6 +27,27 @@ def seed_users_videos_categories():
     db.session.add(advice)
     db.session.add(sports)
     db.session.add(crypto)
+
+    def auto_seed(count):
+        for i in range(count):
+            username = fake.user_name()
+            email = fake.email()
+            password = "password"
+            firstName = fake.first_name()
+            lastName = fake.last_name()
+            about = fake.paragraph(nb_sentences=random.randint(2, 4))
+            profile_image = f"https://source.unsplash.com/random?selfie"
+            created_at = datetime.now()
+
+            seed_user = User(username=username, email=email, password=password, firstName=firstName,
+                             lastName=lastName, about=about, profile_image=profile_image, created_at=created_at)
+
+            seed_user.categories.append(gaming)
+            seed_user.categories.append(sports)
+            seed_user.categories.append(comedy)
+            db.session.add(seed_user)
+
+    auto_seed(75)
 
     # Second the User
     demo = User(username='Demo', email='demo@aa.io', password='password', firstName='Demo', lastName='User', about='I am a demo user',
