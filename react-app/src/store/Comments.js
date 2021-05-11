@@ -49,7 +49,6 @@ export default function commentsReducer(state = { comments: {} }, action) {
       return action.payload;
     case ADD_COMMENT:
       newState = Object.assign({}, state);
-      console.log(newState, "what is this?-*----------")
       const allComments = newState[0]
       allComments.push(action.payload)
       newState[0] = allComments
