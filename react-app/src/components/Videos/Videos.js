@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch, connectAdvanced } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 // Import Dispatches
 import { getFriendsFeed } from "../../store/friendsfeed";
 import { getAllVideos } from "../../store/allvideos";
 import { getCategoriesFeed } from "../../store/foryou";
+import { showModal, setCurrentModal } from "../../store/modal";
+import UserForm from "../auth/UserForm";
+import { getId } from "../../store/User";
+
 import Ticker from "react-ticker";
 // Import Icons
 import MusicNoteOutlinedIcon from "@material-ui/icons/MusicNoteOutlined";
@@ -23,6 +27,12 @@ function Videos() {
   const [videoId, setVideoId] = useState(null);
   const videoRef = useRef(null);
 
+  const showUserForm = (e) => {
+    dispatch(getId(e.target.id));
+    dispatch(setCurrentModal(UserForm));
+    dispatch(showModal());
+  };
+
   const onVideoClick = () => {
     videoRef.current.play();
     setPlaying(true);
@@ -31,7 +41,7 @@ function Videos() {
   const onClick = (e) => {
     // if a video is playing and we clicked on the same video as the first time
     // then pause that video and set it to false
-    if (playing && videoRef.current == e.target) {
+    if (playing && videoRef.current === e.target) {
       videoRef.current.pause();
       setPlaying(false);
     }
@@ -50,9 +60,7 @@ function Videos() {
       videoRef.current = e.target;
       setVideoId(videoRef.current.id);
       onVideoClick();
-      
     }
-    
   };
 
   // grabs the Friends Feed videos
@@ -60,14 +68,14 @@ function Videos() {
     if (user) {
       dispatch(getFriendsFeed(user.id));
     }
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   // grabs the For You videos
   useEffect(() => {
     if (user) {
       dispatch(getCategoriesFeed(user.id));
     }
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   // grabs all videos
   useEffect(() => {
@@ -117,9 +125,9 @@ function Videos() {
                 ></video>
                 <div className="video_footer">
                   <div className="video_footer_text">
-                    <NavLink to={`/user/profile/${video.user[0].id}}`}>
+                    <a id={video.user[0].id} onClick={showUserForm}>
                       @{video.user[0].username}
-                    </NavLink>
+                    </a>
                     <p>{video.description}</p>
                     <div className="video_ticker">
                       <MusicNoteOutlinedIcon className="music_icon" />
@@ -135,6 +143,7 @@ function Videos() {
                       <img
                         className="spinning_wheel"
                         src="https://static.thenounproject.com/png/934821-200.png"
+                        alt=""
                       ></img>
                     </div>
                   </div>

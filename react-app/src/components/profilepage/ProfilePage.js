@@ -14,7 +14,7 @@ function ProfilePage() {
         <LogoutButton />
       </div>
       <div className="profile_user_info">
-        <img className="profile_user_image" src={user.profile_image}></img>
+        <img className="profile_user_image" src={user.profile_image} alt=""></img>
         <p>@{user.username}</p>
       </div>
       <div className="profile_my_videos_section">

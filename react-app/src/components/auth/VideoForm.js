@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { uploadVideo } from "../../store/uploadvideo";
 
 import loading from '../../images/loading.gif'
 
 function VideoForm() {
-  const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [title, setTitle] = useState("");
@@ -20,11 +18,9 @@ function VideoForm() {
     formData.append("video", video);
     if (user) {
       const userId = user.id;
-      console.log("uploading...");
       setImageLoading(true);
       await dispatch(uploadVideo(userId, title, description, video));
       setImageLoading(false);
-      console.log("finished uploading!");
     }
   };
 
@@ -74,7 +70,7 @@ function VideoForm() {
       <button type="submit">Upload</button>
       {imageLoading && 
         <div>
-        <img className='loading_image' src={loading}></img>
+        <img className='loading_image' src={loading} alt=""></img>
         </div>
       }
     </form>

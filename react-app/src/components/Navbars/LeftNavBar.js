@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { getUserFollowing } from "../../store/following";
+import { showModal, setCurrentModal } from "../../store/modal";
+
+import UserForm from "../auth/UserForm";
+import {getId} from "../../store/User"
 
 import "./Navbars.css";
 
@@ -14,7 +17,13 @@ function LeftNavBar() {
     if (user) {
       dispatch(getUserFollowing(user.id));
     }
-  }, [dispatch]);
+  }, [dispatch, user]);
+
+  const showUserForm = (e) => {
+    dispatch(getId(e.target.id))
+    dispatch(setCurrentModal(UserForm));
+    dispatch(showModal());
+  };
 
   return (
     <nav className="left_navbar">
@@ -27,10 +36,10 @@ function LeftNavBar() {
           following.length > 0 &&
           following.map((following) => (
             <div key={following.username} className="followed_name">
-              <img src={following.profile_image}></img>
-              <NavLink to={`/user/profile/${following.id}`}>
-                @{following.username}
-              </NavLink>
+              <img src={following.profile_image} alt=""></img>
+              <div>
+                <a id={following.id} onClick={showUserForm}>@{following.username}</a>
+              </div>
             </div>
           ))}
       </div>

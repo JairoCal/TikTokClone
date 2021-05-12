@@ -31,3 +31,34 @@
 .comment_time {
     font-size: 12px;
 }
+
+.comments_container{
+  height: 95vh;
+  min-width: 350px;
+  max-width: 350px;
+
+}
+.comments_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all_comments {
+  overflow-y: scroll;
+  height: 85vh;
+}
+
+.comment_form {
+  display: flex;
+  height: 5vh;
+}
+
+.comment_input {
+  width: 100%;
+}
+
+.scrolling_div {
+  width: 100%;
+  margin-top: 10px;
+}

@@ -1,5 +1,6 @@
 const GET_COMMENTS = "comments/GET_COMMENTS";
 const ADD_COMMENT = "comments/ADD_COMMENT";
+const UNLOAD = "comments/UNLOAD"
 
 // Action
 const addComment = (comment) => ({
@@ -11,6 +12,10 @@ const getComments = (comments) => ({
   type: GET_COMMENTS,
   payload: comments,
 });
+
+export const Unload = () => ({
+  type: UNLOAD
+})
 
 // Thunk
 export const getVideoComments = (videoId) => async (dispatch) => {
@@ -42,17 +47,23 @@ export const postComment = (message, video_id, user_id) => async (dispatch) => {
 }
 
 // Reducer
-export default function commentsReducer(state = { comments: {} }, action) {
+export default function commentsReducer(state = { comments: [] }, action) {
   let newState;
   switch (action.type) {
     case GET_COMMENTS:
       return action.payload;
     case ADD_COMMENT:
       newState = Object.assign({}, state);
-      const allComments = newState[0]
-      allComments.push(action.payload)
-      newState[0] = allComments
-      return newState
+      const allComments = newState[0];
+      allComments.push(action.payload);
+      newState[0] = allComments;
+      let newArr = [];
+      newArr.push(newState[0])
+      return newArr;
+    case UNLOAD:
+      return {
+        comments: [],
+      };
     default:
       return state;
   }

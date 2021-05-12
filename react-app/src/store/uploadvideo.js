@@ -32,7 +32,7 @@ export default function uploadReducer(state = initialState, action) {
   switch (action.type) {
     case UPLOAD_VIDEO:
       return { user: action.payload };
-
+    default:
       return state;
   }
 }

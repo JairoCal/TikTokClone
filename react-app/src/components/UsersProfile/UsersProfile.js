@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getUserInfo } from "../../store/UserInfo";
@@ -18,9 +18,8 @@ function UsersProfile() {
       <style type="text/css">{`.left_navbar {display: none}`}</style>
       {user && (
         <div>
-        {console.log(user,"----------------------------")}
           <div className="profile_user_info">
-            <img className="profile_user_image" src={user.profile_image}></img>
+            <img className="profile_user_image" src={user.profile_image} alt=""></img>
             <p>@{user.username}</p>
           </div>
           <div className="profile_my_videos_section">
