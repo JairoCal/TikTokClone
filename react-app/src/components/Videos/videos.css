@@ -64,7 +64,7 @@ html {
 
 .music_icon {
   position: absolute;
-  margin-top: 13px;
+  margin-top: 1px;
 }
 .video_ticker > .ticker {
   height: fit-content;
