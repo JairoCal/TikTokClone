@@ -1,22 +1,26 @@
-import React from 'react'
-import { useSelector } from "react-redux";
-
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { hideModal } from "../../store/modal";
 
 function UserForm() {
-      const userId = useSelector((state) => state.userId);
+  const dispatch = useDispatch();
+  const userId = useSelector((state) => state.userId);
 
-      if(userId) {
-          
-      }
+  const onProfile = () => {
+    dispatch(hideModal());
+  };
 
-    return (
-        <div>
-            <h1>Hi testing</h1>
-            {userId && (
-                <h2>{userId}</h2>
-            )}
-        </div>
-    )
+  return (
+    <div>
+      <h1>Hi testing</h1>
+      {userId && (
+        <NavLink to={`/user/profile/${userId}`}>
+          <button onClick={onProfile}>Profile Page</button>
+        </NavLink>
+      )}
+    </div>
+  );
 }
 
-export default UserForm
+export default UserForm;
