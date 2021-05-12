@@ -10,7 +10,7 @@ import { authenticate } from "./store/session";
 import LeftNavBar from "./components/Navbars/LeftNavBar";
 import Videos from "./components/Videos/Videos";
 import ProfilePage from "./components/profilepage/ProfilePage";
-import Modal from './components/Modal/index'
+import Modal from "./components/Modal/index";
 import PrivateMessages from "./components/PrivateMessages/PrivateMessages";
 import UsersProfile from "./components/UsersProfile/UsersProfile";
 
@@ -32,9 +32,9 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Modal />
       <LeftNavBar />
       <NavBar />
-      <Modal />
       <Switch>
         <ProtectedRoute path="/users" exact={true}>
           <UsersList />

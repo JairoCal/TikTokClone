@@ -10,6 +10,7 @@ import privateMessageRecipients from "./privateMessageRecipients";
 import privateMessages from "./ PrivateMessages";
 import videoComments from './Comments'
 import userInfo from './UserInfo'
+import userId from './User'
 
 const rootReducer = combineReducers({
   session,
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   privateMessageRecipients,
   privateMessages,
   videoComments,
-  userInfo
+  userInfo,
+  userId,
 });
 
 let enhancer;
