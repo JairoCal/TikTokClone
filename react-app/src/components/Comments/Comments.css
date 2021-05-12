@@ -31,3 +31,8 @@
 .comment_time {
     font-size: 12px;
 }
+
+.comments_container{
+  height: 95vh;
+  overflow-y: scroll;
+}

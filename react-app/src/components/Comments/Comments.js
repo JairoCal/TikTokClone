@@ -4,24 +4,26 @@ import Moment from "react-moment";
 import "moment-timezone";
 import "./Comments.css";
 
-import { getVideoComments, postComment } from "../../store/Comments";
+import { getVideoComments, postComment, Unload } from "../../store/Comments";
 
-function Comments(props) {
+function Comments({videoId}) {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.videoComments);
   const user = useSelector((state) => state.session.user);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    if (props.videoId !== null) {
-      let videoId = Number(props.videoId);
-      dispatch(getVideoComments(videoId));
+    if (videoId !== null) {
+      dispatch(getVideoComments(Number(videoId)));
     }
-  }, [dispatch, props.videoId, comments]);
+    return () => {
+      dispatch(Unload())
+    }
+  }, [dispatch, videoId]);
 
   const sendComment = (e) => {
     e.preventDefault();
-    let video_id = Number(props.videoId);
+    let video_id = Number(videoId);
     let user_id = Number(user.id)
     dispatch(postComment(message, video_id, user_id))
     setMessage("")
