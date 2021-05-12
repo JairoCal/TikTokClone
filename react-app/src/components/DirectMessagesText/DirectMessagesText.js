@@ -60,7 +60,7 @@ function DirectMessagesText(props) {
               <div className="user_image_box">
                 <img
                   className="user_image_message"
-                  src={message.profile_image? message.profile_image: ""}
+                  src={message.profile_image? message.profile_image: ""} alt=""
                 ></img>
               </div>
               <div className="message_box">

@@ -14,7 +14,7 @@ function LeftNavBar() {
     if (user) {
       dispatch(getUserFollowing(user.id));
     }
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   return (
     <nav className="left_navbar">
@@ -27,7 +27,7 @@ function LeftNavBar() {
           following.length > 0 &&
           following.map((following) => (
             <div key={following.username} className="followed_name">
-              <img src={following.profile_image}></img>
+              <img src={following.profile_image} alt=""></img>
               <NavLink to={`/user/profile/${following.id}`}>
                 @{following.username}
               </NavLink>

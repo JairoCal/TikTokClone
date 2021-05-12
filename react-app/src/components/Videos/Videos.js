@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch, connectAdvanced } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 // Import Dispatches
@@ -31,7 +31,7 @@ function Videos() {
   const onClick = (e) => {
     // if a video is playing and we clicked on the same video as the first time
     // then pause that video and set it to false
-    if (playing && videoRef.current == e.target) {
+    if (playing && videoRef.current === e.target) {
       videoRef.current.pause();
       setPlaying(false);
     }
@@ -60,14 +60,14 @@ function Videos() {
     if (user) {
       dispatch(getFriendsFeed(user.id));
     }
-  }, [dispatch]);
+  }, [dispatch ,user]);
 
   // grabs the For You videos
   useEffect(() => {
     if (user) {
       dispatch(getCategoriesFeed(user.id));
     }
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   // grabs all videos
   useEffect(() => {
@@ -134,7 +134,7 @@ function Videos() {
                     <div className="spinning_wheel_holder">
                       <img
                         className="spinning_wheel"
-                        src="https://static.thenounproject.com/png/934821-200.png"
+                        src="https://static.thenounproject.com/png/934821-200.png" alt=""
                       ></img>
                     </div>
                   </div>
