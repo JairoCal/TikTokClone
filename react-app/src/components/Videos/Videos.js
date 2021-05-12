@@ -9,6 +9,7 @@ import { getCategoriesFeed } from "../../store/foryou";
 import { showModal, setCurrentModal } from "../../store/modal";
 import UserForm from "../auth/UserForm";
 import { getId } from "../../store/User";
+import { getUserName } from '../../store/UserName'
 
 import Ticker from "react-ticker";
 // Import Icons
@@ -28,6 +29,7 @@ function Videos() {
   const videoRef = useRef(null);
 
   const showUserForm = (e) => {
+    dispatch(getUserName(e.target.classList[0]));
     dispatch(getId(e.target.id));
     dispatch(setCurrentModal(UserForm));
     dispatch(showModal());
@@ -125,7 +127,11 @@ function Videos() {
                 ></video>
                 <div className="video_footer">
                   <div className="video_footer_text">
-                    <a id={video.user[0].id} onClick={showUserForm}>
+                    <a
+                      id={video.user[0].id}
+                      className={video.user[0].username}
+                      onClick={showUserForm}
+                    >
                       @{video.user[0].username}
                     </a>
                     <p>{video.description}</p>
