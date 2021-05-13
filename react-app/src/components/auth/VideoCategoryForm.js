@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { videoFollowCategory } from "../../store/FollowCategory";
+import { hideModal} from "../../store/modal";
 
 
 function VideoCategoryForm() {
@@ -22,6 +23,7 @@ function VideoCategoryForm() {
   const onCategoryAdd = (e) => {
     e.preventDefault();
     dispatch(videoFollowCategory(checkedCategories, video_id));
+    dispatch(hideModal());
   };
 
   return (

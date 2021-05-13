@@ -23,7 +23,6 @@ function VideoForm() {
       setImageLoading(true);
       await dispatch(uploadVideo(userId, title, description, video));
       setImageLoading(false);
-      dispatch(hideModal())
       dispatch(setCurrentModal(VideoCategoryForm))
       dispatch(showModal())
     }
