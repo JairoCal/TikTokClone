@@ -15,7 +15,7 @@ function UserForm() {
 
   const user = useSelector((state) => state.session.user);
   const [trigger, setTrigger] = useState(false);
-  const [followButton, setFollowButton] = useState(false)
+  const [followButton, setFollowButton] = useState(false);
 
   //************ Private Message ************
   const privateMessageHandler = async (e) => {
@@ -49,22 +49,24 @@ function UserForm() {
   // onClick follow button
   const onFollow = () => {
     dispatch(followUploader(user.id, recipientId));
-    setFollowButton(true)
+    setFollowButton(true);
   };
 
   // When we click on a different user run this to check if we already follow that person
   useEffect(() => {
-    if(following && recipientId) {
-      following.forEach(user => {
-        if(user.id == recipientId) {
-          setFollowButton(true)
-          console.log("yeah we follow this dude ....................")
-        } else{
-          setFollowButton(false)
+    if (following && recipientId) {
+      for (let i = 0; i < following.length; i++) {
+        let user = following[i];
+        if (user.id === Number(recipientId)) {
+          setFollowButton(true);
+          break;
+        } else {
+          console.log("we should be here");
+          setFollowButton(false);
         }
-      })
+      }
     }
-  }, [dispatch, recipientId])
+  }, [dispatch, recipientId]);
 
   return (
     <div>
@@ -82,7 +84,9 @@ function UserForm() {
       )}
       {recipientId && (
         <div>
-          <button onClick={onFollow} disabled={followButton} >Follow</button>
+          <button onClick={onFollow} disabled={followButton}>
+            Follow
+          </button>
         </div>
       )}
     </div>
