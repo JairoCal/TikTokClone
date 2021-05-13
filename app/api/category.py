@@ -44,3 +44,9 @@ def category_videos(user_id):
             if category_id in category_id_list:
                 category_videos_list.append(video)
     return {"category_videos": category_videos_list}
+
+# grab all categories
+@category_routes.route('/all')
+def all_categories():
+    categories = Category.query.all()
+    return {"categories": [category.to_dict() for category in categories]}
