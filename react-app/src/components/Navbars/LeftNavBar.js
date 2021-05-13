@@ -7,6 +7,7 @@ import UserForm from "../auth/UserForm";
 import { getId } from "../../store/User";
 import { getUserName } from "../../store/UserName";
 import { getCategories } from "../../store/Categories";
+import { videoFollowCategory } from "../../store/FollowCategory"
 
 import "./Navbars.css";
 
@@ -14,9 +15,10 @@ function LeftNavBar() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const following = useSelector((state) => state.following);
+  const video_id= useSelector((state) => state.video.id)
 
   const categories = useSelector((state) => state.categories);
-  const [checkedCategories, setCheckedCategories]= useState([])
+  const [checkedCategories, setCheckedCategories] = useState([]);
 
   useEffect(() => {
     if (user) {
@@ -38,15 +40,20 @@ function LeftNavBar() {
   };
 
   const onCheck = (e) => {
-    let category = Number(e.target.id)
-    if(e.target.checked  && !checkedCategories.includes(category)){
+    let category = Number(e.target.id);
+    if (e.target.checked && !checkedCategories.includes(category)) {
       checkedCategories.push(category);
-      console.log("we are in here")
-    } else if(!e.target.checked && checkedCategories.includes(category)) {
-      checkedCategories.splice(checkedCategories.indexOf(category), 1)
+    } else if (!e.target.checked && checkedCategories.includes(category)) {
+      checkedCategories.splice(checkedCategories.indexOf(category), 1);
     }
-    console.log(checkedCategories)
   };
+
+  const onCategoryAdd = (e) => {
+    e.preventDefault();
+    // const formData = new FormData();
+    console.log(checkedCategories)
+    dispatch(videoFollowCategory(checkedCategories, video_id))
+  }
 
   return (
     <nav className="left_navbar">
@@ -54,17 +61,20 @@ function LeftNavBar() {
         <h1>Following</h1>
       </div>
       <div>
-        {categories.length > 0 &&
-          categories.map((category) => (
-            <div key={category.id}>
-              <input
-                id={category.id}
-                type="checkbox"
-                onChange={onCheck}
-              ></input>
-              <label>{category.genre}</label>
-            </div>
-          ))}
+        <form onSubmit={onCategoryAdd}>
+          {categories.length > 0 &&
+            categories.map((category) => (
+              <div key={category.id}>
+                <input
+                  id={category.id}
+                  type="checkbox"
+                  onChange={onCheck}
+                ></input>
+                <label>{category.genre}</label>
+              </div>
+            ))}
+            <button onClick={onCategoryAdd}>Add to Category</button>
+        </form>
       </div>
       <div>
         {user &&

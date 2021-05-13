@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadVideo } from "../../store/uploadvideo";
+import { hideModal, showModal, setCurrentModal } from "../../store/modal";
 
-import loading from '../../images/loading.gif'
 import './VideoForm.css'
 
 function VideoForm() {
@@ -22,6 +22,7 @@ function VideoForm() {
       setImageLoading(true);
       await dispatch(uploadVideo(userId, title, description, video));
       setImageLoading(false);
+      dispatch(hideModal())
     }
   };
 
@@ -70,11 +71,11 @@ function VideoForm() {
       </div>
       <button type="submit">Upload</button>
       {imageLoading && (
-        <div class="container">
-          <div class="loading">
-            <span class="text">Loading</span>
-            <div class="percent">
-              <div class="progress"></div>
+        <div className="container">
+          <div className="loading">
+            <span className="text">Loading</span>
+            <div className="percent">
+              <div className="progress"></div>
             </div>
           </div>
         </div>

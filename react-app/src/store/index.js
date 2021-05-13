@@ -13,6 +13,7 @@ import userInfo from "./UserInfo";
 import userId from "./User";
 import userName from "./UserName";
 import categories from "./Categories";
+import video from "./uploadvideo";
 
 const rootReducer = combineReducers({
   session,
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   userId,
   userName,
   categories,
+  video,
 });
 
 let enhancer;
