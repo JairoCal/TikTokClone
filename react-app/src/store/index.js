@@ -12,6 +12,7 @@ import videoComments from "./Comments";
 import userInfo from "./UserInfo";
 import userId from "./User";
 import userName from "./UserName";
+import categories from "./Categories";
 
 const rootReducer = combineReducers({
   session,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   userInfo,
   userId,
   userName,
+  categories,
 });
 
 let enhancer;
