@@ -64,3 +64,16 @@ def video_category():
         video.categories_video.append(category_obj)
         db.session.commit()
     return {}
+
+
+# Adding a user to a category
+@category_routes.route('/user/follow/category', methods=['POST'])
+def user_category():
+    categories_list = request.json['categories']
+    user_id = request.json['user_id']
+    user = User.query.filter(User.id == user_id).first()
+    for category in categories_list:
+        category_obj = Category.query.filter(Category.id == category).first()
+        user.categories.append(category_obj)
+        db.session.commit()
+    return {}
