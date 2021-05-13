@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { hideModal } from "../../store/modal";
 import { privateSocket } from "../DirectMessagesText/DirectMessagesText";
+import { followUploader } from "../../store/following";
 
 function UserForm() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function UserForm() {
   const user = useSelector((state) => state.session.user);
   const [trigger, setTrigger] = useState(false);
 
+  //************ Private Message ************
   const privateMessageHandler = async (e) => {
     const senderId = user.id;
     const senderUserName = user.username;
@@ -34,13 +36,17 @@ function UserForm() {
       await privateSocket.emit("join_room", { roomId: user.roomId });
       await privateSocket.emit("private_message", user);
       history.push(`/privatemessages/${recipientId}`);
-    dispatch(hideModal());
-
+      dispatch(hideModal());
     }
   }, [trigger]);
+  //*********************************************
 
   const onProfile = () => {
     dispatch(hideModal());
+  };
+
+  const onFollow = () => {
+    dispatch(followUploader(user.id, recipientId));
   };
 
   return (
@@ -55,6 +61,11 @@ function UserForm() {
       {recipientId && recipientUserName && (
         <div>
           <button onClick={privateMessageHandler}>Private Message</button>
+        </div>
+      )}
+      {recipientId && (
+        <div>
+          <button onClick={onFollow}>Follow</button>
         </div>
       )}
     </div>

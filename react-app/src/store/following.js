@@ -1,12 +1,12 @@
 const GET_FOLLOWING = "user/GET_FOLLOWING";
 
-// action
+// Action
 const getFollowing = (following) => ({
   type: GET_FOLLOWING,
   payload: following,
 });
 
-//thunk
+// Thunk
 export const getUserFollowing = (userId) => async (dispatch) => {
   const response = await fetch(`/api/follows/${userId}`);
   if (response.ok) {
@@ -19,7 +19,18 @@ export const getUserFollowing = (userId) => async (dispatch) => {
   return null;
 };
 
-// reducer
+export const followUploader = (follower_id, uploader_id) => async (dispatch) => {
+  const response = await fetch(`/api/follows/user/${follower_id}/follow/${uploader_id}`, {
+    method: "POST",
+    header: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({})
+  })
+  const data = await response.json();
+}
+
+// Reducer
 export default function followingReducer(state = { following: {} }, action) {
   switch (action.type) {
     case GET_FOLLOWING:

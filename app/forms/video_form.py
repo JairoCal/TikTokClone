@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, DateField, IntegerField
-from wtforms.validators import DataRequired, ValidationError
-from app.models import Video
+from wtforms import StringField, DateField, IntegerField
+from wtforms.validators import DataRequired
 from datetime import datetime
 
 
