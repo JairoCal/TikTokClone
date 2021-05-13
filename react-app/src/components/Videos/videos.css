@@ -4,7 +4,7 @@ html {
 
 .right_nav {
   display: flex;
-  margin-left: 350px;
+  margin-left: 25vw;
   height: 95vh;
   background-color: #1f2833;
   color: #45a29e;
@@ -58,7 +58,7 @@ html {
   position: relative;
   color: white;
   z-index: 100;
-  bottom: 145px;
+  bottom: 10vh;
   margin-left: 15px;
 }
 
@@ -75,7 +75,7 @@ html {
 .spinning_wheel_holder {
   position: absolute;
   z-index: 100;
-  bottom: 10px;
+  bottom: -10px;
   right: 15px;
 }
 .spinning_wheel {

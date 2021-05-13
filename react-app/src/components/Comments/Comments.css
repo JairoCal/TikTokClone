@@ -34,14 +34,15 @@
 
 .comments_container{
   height: 95vh;
-  min-width: 350px;
-  max-width: 350px;
+  min-width: 25vw;
+  max-width: 25vw;
 
 }
 .comments_header {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 5vh;
 }
 
 .all_comments {
