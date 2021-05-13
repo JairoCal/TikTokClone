@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
 
 // Import Dispatches
 import { getFriendsFeed } from "../../store/friendsfeed";

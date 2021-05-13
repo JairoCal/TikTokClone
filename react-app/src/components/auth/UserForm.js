@@ -11,9 +11,11 @@ function UserForm() {
   const history = useHistory();
   const recipientId = useSelector((state) => state.userId);
   const recipientUserName = useSelector((state) => state.userName);
+  const following = useSelector((state) => state.following);
 
   const user = useSelector((state) => state.session.user);
   const [trigger, setTrigger] = useState(false);
+  const [followButton, setFollowButton] = useState(false)
 
   //************ Private Message ************
   const privateMessageHandler = async (e) => {
@@ -44,10 +46,25 @@ function UserForm() {
   const onProfile = () => {
     dispatch(hideModal());
   };
-
+  // onClick follow button
   const onFollow = () => {
     dispatch(followUploader(user.id, recipientId));
+    setFollowButton(true)
   };
+
+  // When we click on a different user run this to check if we already follow that person
+  useEffect(() => {
+    if(following && recipientId) {
+      following.forEach(user => {
+        if(user.id == recipientId) {
+          setFollowButton(true)
+          console.log("yeah we follow this dude ....................")
+        } else{
+          setFollowButton(false)
+        }
+      })
+    }
+  }, [dispatch, recipientId])
 
   return (
     <div>
@@ -65,7 +82,7 @@ function UserForm() {
       )}
       {recipientId && (
         <div>
-          <button onClick={onFollow}>Follow</button>
+          <button onClick={onFollow} disabled={followButton} >Follow</button>
         </div>
       )}
     </div>

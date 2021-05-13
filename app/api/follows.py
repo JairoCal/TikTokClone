@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.models import db, Video, User, Follow, Category, video_category, user_category
+from app.models import db, Video, User, Follow
 from app.forms import FollowForm
 
 follows_routes = Blueprint('follows', __name__)
@@ -45,6 +45,7 @@ def following_videos(user_id):
     return {"following_videos": following_list_videos}
 
 
+# Update who the logged in user follows and query for the info the uploader
 @follows_routes.route('/user/<follower_id>/follow/<uploader_id>', methods=['POST'])
 def follow_uploader(follower_id, uploader_id):
     form = FollowForm()
@@ -55,5 +56,6 @@ def follow_uploader(follower_id, uploader_id):
         )
         db.session.add(follow)
         db.session.commit()
-        return follow.to_dict()
+        user = User.query.filter(User.id == uploader_id).first()
+        return user.to_dict()
     return "did not go through", 401
