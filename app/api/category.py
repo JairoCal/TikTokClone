@@ -56,10 +56,8 @@ def all_categories():
 # Adding a video to a category
 @category_routes.route('/video/follow/category', methods=['POST'])
 def video_category():
-    print(request.json, "--------------------------------------")
     categories_list = request.json['categories']
     video_id = request.json['video_id']
-    print(video_id, "--------------------------------------")
     video = Video.query.filter(Video.id == video_id).first()
     for category in categories_list:
         category_obj = Category.query.filter(Category.id == category).first()
@@ -72,9 +70,7 @@ def video_category():
 @category_routes.route('/user/follow/category', methods=['POST'])
 def user_category():
     categories_list = request.json['categories']
-    print(categories_list, "--------------------------------------")
     user_id = request.json['user_id']
-    print(user_id, "--------------------------------------")
     user = User.query.filter(User.id == user_id).first()
     for category in categories_list:
         category_obj = Category.query.filter(Category.id == category).first()

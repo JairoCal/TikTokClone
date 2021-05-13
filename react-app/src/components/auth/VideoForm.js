@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadVideo } from "../../store/uploadvideo";
 import { hideModal, showModal, setCurrentModal } from "../../store/modal";
+import VideoCategoryForm from "../auth/VideoCategoryForm";
 
 import './VideoForm.css'
 
@@ -23,6 +24,8 @@ function VideoForm() {
       await dispatch(uploadVideo(userId, title, description, video));
       setImageLoading(false);
       dispatch(hideModal())
+      dispatch(setCurrentModal(VideoCategoryForm))
+      dispatch(showModal())
     }
   };
 
