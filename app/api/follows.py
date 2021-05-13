@@ -1,5 +1,6 @@
-from flask import Blueprint, jsonify, request
-from app.models import Video, User, Follow, Category, video_category, user_category
+from flask import Blueprint
+from app.models import db, Video, User, Follow
+from app.forms import FollowForm
 
 follows_routes = Blueprint('follows', __name__)
 
@@ -42,3 +43,19 @@ def following_videos(user_id):
         for video in videos:
             following_list_videos.append(video)
     return {"following_videos": following_list_videos}
+
+
+# Update who the logged in user follows and query for the info the uploader
+@follows_routes.route('/user/<follower_id>/follow/<uploader_id>', methods=['POST'])
+def follow_uploader(follower_id, uploader_id):
+    form = FollowForm()
+    if form.is_submitted():
+        follow = Follow(
+            follower_id=follower_id,
+            uploader_id=uploader_id
+        )
+        db.session.add(follow)
+        db.session.commit()
+        user = User.query.filter(User.id == uploader_id).first()
+        return user.to_dict()
+    return "did not go through", 401

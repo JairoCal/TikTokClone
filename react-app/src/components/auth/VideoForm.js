@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { uploadVideo } from "../../store/uploadvideo";
 
 import loading from '../../images/loading.gif'
+import './VideoForm.css'
 
 function VideoForm() {
   const dispatch = useDispatch();
@@ -68,11 +69,16 @@ function VideoForm() {
         ></input>
       </div>
       <button type="submit">Upload</button>
-      {imageLoading && 
-        <div>
-        <img className='loading_image' src={loading} alt=""></img>
+      {imageLoading && (
+        <div class="container">
+          <div class="loading">
+            <span class="text">Loading</span>
+            <div class="percent">
+              <div class="progress"></div>
+            </div>
+          </div>
         </div>
-      }
+      )}
     </form>
   );
 }
