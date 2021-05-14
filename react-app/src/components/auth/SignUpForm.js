@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
-import { hideModal } from "../../store/modal";
+import { hideModal, showModal, setCurrentModal } from "../../store/modal";
+import UserCategoryForm from '../auth/UserCategoryForm'
 
 import "./auth.css";
 
@@ -28,8 +29,10 @@ const SignUpForm = () => {
       await dispatch(
         signUp(username, email, firstName, lastName, about, image, password)
       );
-      dispatch(hideModal());
-      history.push("/");
+      await dispatch(hideModal());
+      dispatch(setCurrentModal(UserCategoryForm))
+      dispatch(showModal())
+      // history.push("/");
     }
   };
 
