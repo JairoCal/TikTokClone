@@ -69,19 +69,19 @@ function Videos() {
     if (user) {
       dispatch(getFriendsFeed(user.id));
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, page]);
 
   // grabs the For You videos
   useEffect(() => {
     if (user) {
       dispatch(getCategoriesFeed(user.id));
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, page]);
 
   // grabs all videos
   useEffect(() => {
     dispatch(getAllVideos());
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   const onForYou = async (e) => {
     e.preventDefault();
@@ -124,6 +124,7 @@ function Videos() {
                   src={video.video_url}
                   ref={videoRef}
                 ></video>
+
                 <div className="video_footer">
                   <div className="video_footer_text">
                     <a
@@ -162,13 +163,13 @@ function Videos() {
           <div className="video_container">
             <div className="buttons_container">
               <div>
-                <button onClick={onFriendsFeed}>Friends Feed</button>
+                <a onClick={onFriendsFeed}>Friends Feed</a>
               </div>
               <div>
-                <button onClick={onForYou}>For You</button>
+                <a onClick={onForYou}>For You</a>
               </div>
               <div>
-                <button onClick={onAllFeed}>Explore</button>
+                <a onClick={onAllFeed}>Explore</a>
               </div>
             </div>
             {friendsFeed?.map((video) => (
@@ -181,28 +182,52 @@ function Videos() {
                   src={video.video_url}
                   ref={videoRef}
                 ></video>
+
                 <div className="video_footer">
                   <div className="video_footer_text">
-                    <h3>@{video.user[0].username}</h3>
+                    <a
+                      id={video.user[0].id}
+                      className={video.user[0].username}
+                      onClick={showUserForm}
+                    >
+                      @{video.user[0].username}
+                    </a>
                     <p>{video.description}</p>
-                    <h4>{video.title}</h4>
+                    <div className="video_ticker">
+                      <MusicNoteOutlinedIcon className="music_icon" />
+                      <Ticker mode="smooth">
+                        {({ index }) => (
+                          <>
+                            <p>{video.title}</p>
+                          </>
+                        )}
+                      </Ticker>
+                    </div>
+                    <div className="spinning_wheel_holder">
+                      <img
+                        className="spinning_wheel"
+                        src="https://static.thenounproject.com/png/934821-200.png"
+                        alt=""
+                      ></img>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         )}
+
         {categoriesFeed.length > 0 && page === 2 && (
           <div className="video_container">
             <div className="buttons_container">
               <div>
-                <button onClick={onFriendsFeed}>Friends Feed</button>
+                <a onClick={onFriendsFeed}>Friends Feed</a>
               </div>
               <div>
-                <button onClick={onForYou}>For You</button>
+                <a onClick={onForYou}>For You</a>
               </div>
               <div>
-                <button onClick={onAllFeed}>Explore</button>
+                <a onClick={onAllFeed}>Explore</a>
               </div>
             </div>
             {categoriesFeed?.map((video) => (
@@ -215,11 +240,34 @@ function Videos() {
                   src={video.video_url}
                   ref={videoRef}
                 ></video>
+
                 <div className="video_footer">
                   <div className="video_footer_text">
-                    <h3>@{video.user[0].username}</h3>
-                    <h4>{video.title}</h4>
+                    <a
+                      id={video.user[0].id}
+                      className={video.user[0].username}
+                      onClick={showUserForm}
+                    >
+                      @{video.user[0].username}
+                    </a>
                     <p>{video.description}</p>
+                    <div className="video_ticker">
+                      <MusicNoteOutlinedIcon className="music_icon" />
+                      <Ticker mode="smooth">
+                        {({ index }) => (
+                          <>
+                            <p>{video.title}</p>
+                          </>
+                        )}
+                      </Ticker>
+                    </div>
+                    <div className="spinning_wheel_holder">
+                      <img
+                        className="spinning_wheel"
+                        src="https://static.thenounproject.com/png/934821-200.png"
+                        alt=""
+                      ></img>
+                    </div>
                   </div>
                 </div>
               </div>

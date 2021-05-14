@@ -44,3 +44,36 @@ def category_videos(user_id):
             if category_id in category_id_list:
                 category_videos_list.append(video)
     return {"category_videos": category_videos_list}
+
+
+# grab all categories
+@category_routes.route('/all')
+def all_categories():
+    categories = Category.query.all()
+    return {"categories": [category.to_dict() for category in categories]}
+
+
+# Adding a video to a category
+@category_routes.route('/video/follow/category', methods=['POST'])
+def video_category():
+    categories_list = request.json['categories']
+    video_id = request.json['video_id']
+    video = Video.query.filter(Video.id == video_id).first()
+    for category in categories_list:
+        category_obj = Category.query.filter(Category.id == category).first()
+        video.categories_video.append(category_obj)
+        db.session.commit()
+    return {}
+
+
+# Adding a user to a category
+@category_routes.route('/user/follow/category', methods=['POST'])
+def user_category():
+    categories_list = request.json['categories']
+    user_id = request.json['user_id']
+    user = User.query.filter(User.id == user_id).first()
+    for category in categories_list:
+        category_obj = Category.query.filter(Category.id == category).first()
+        user.categories.append(category_obj)
+        db.session.commit()
+    return {}

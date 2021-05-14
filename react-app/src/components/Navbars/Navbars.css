@@ -36,7 +36,8 @@ img {
   position: fixed;
   top: 0;
   box-sizing: inherit;
-  width: 350px;
+  min-width: 25vw;
+  max-width:25vw;
   background-color: #1F2833;
   color: #45a29e;
 }
@@ -45,6 +46,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 5vh;
 }
 
 .bottom_navbar {
