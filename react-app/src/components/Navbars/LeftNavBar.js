@@ -14,21 +14,12 @@ function LeftNavBar() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const following = useSelector((state) => state.following);
-  const video_id= useSelector((state) => state.video.id)
-
-  const categories = useSelector((state) => state.categories);
-  const [checkedCategories, setCheckedCategories] = useState([]);
 
   useEffect(() => {
     if (user) {
       dispatch(getUserFollowing(user.id));
     }
-  }, [dispatch, user]);
-
-  useEffect(() => {
-    if (user) {
-      dispatch(getCategories());
-    }
+    dispatch(getCategories())
   }, [dispatch, user]);
 
   const showUserForm = (e) => {
@@ -39,7 +30,7 @@ function LeftNavBar() {
   };
 
   return (
-    <nav className="left_navbar">
+    <nav style={{ backgroundImage: "url(/background4.jpeg)"}} className="left_navbar">
       <div className="left_navbar_header">
         <h1>Following</h1>
       </div>

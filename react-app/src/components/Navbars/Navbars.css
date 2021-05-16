@@ -5,7 +5,7 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 2em;;
+  font-size: 2em;
 }
 
 a:link {
@@ -37,9 +37,9 @@ img {
   top: 0;
   box-sizing: inherit;
   min-width: 25vw;
-  max-width:25vw;
-  background-color: #1F2833;
-  color: #45a29e;
+  max-width: 25vw;
+  background-color: #0b0c10;
+  color: #66FCF1;
 }
 
 .left_navbar_header {
@@ -59,9 +59,9 @@ img {
   justify-content: space-around;
   align-items: center;
   box-sizing: inherit;
-  background-color: #1F2833;
+  background-color: #1f2833;
   color: #45a29e;
-  border-top: 1px solid #C5C6C7;
+  border-top: 1px solid #45A29E;
   z-index: 1000;
 }
 
@@ -75,5 +75,6 @@ img {
 .followed_name {
   display: flex;
   align-items: center;
-  border-top: 1px solid #C5C6C7;
+  border-top: 1px solid #c5c6c7;
 }
+

@@ -49,7 +49,7 @@ function Comments({videoId}) {
                 <div className="comment_info">
                   <div className="comment_top">
                     <div className="comment_username">
-                      <p>{comment.user[0].username} </p>
+                      <p >{comment.user[0].username} </p>
                     </div>
                     <div className="comment_time">
                       <Moment
@@ -61,7 +61,7 @@ function Comments({videoId}) {
                     </div>
                   </div>
                   <div className="comment_message">
-                    <p>{comment.message}</p>
+                    <p className="comment_text">{comment.message}</p>
                   </div>
                 </div>
               </div>
