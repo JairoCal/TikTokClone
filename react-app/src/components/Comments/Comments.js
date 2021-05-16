@@ -70,12 +70,12 @@ function Comments({videoId}) {
       <div className="message_bar">
         <form onSubmit={sendComment} className="comment_form">
           <input
-            className="comment_input"
+            className="form_input"
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Comment..."
           ></input>
+          <label className="form_label">Comment</label>
           <button className="comment_button" onClick={sendComment}>
             Comment
           </button>

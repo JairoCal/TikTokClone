@@ -39,7 +39,7 @@ img {
   min-width: 25vw;
   max-width: 25vw;
   background-color: #0b0c10;
-  color: #66FCF1;
+  color: #66fcf1;
 }
 
 .left_navbar_header {
@@ -61,7 +61,7 @@ img {
   box-sizing: inherit;
   background-color: #1f2833;
   color: #45a29e;
-  border-top: 1px solid #45A29E;
+  border-top: 1px solid #45a29e;
   z-index: 1000;
 }
 
@@ -78,3 +78,65 @@ img {
   border-top: 1px solid #c5c6c7;
 }
 
+.form_input {
+  margin-left: 3px;
+  position: absolute;
+  height: 5vh;
+  outline: none;
+  background: none;
+  color: white;
+  border-top-left-radius:  5px;
+  border-bottom-left-radius:  5px;
+  width: 20vw;
+  border: 2px solid #45a29e;
+  box-sizing: border-box;
+}
+
+.form_input:focus ~ .form_label {
+  top: -0.5rem;
+  font-size: 12px;
+  left: 9.5px;
+  color: #18ffff;
+}
+
+.comment_button {
+  position: absolute;
+  height: 5vh;
+  width: 5vw;
+  right: 0;
+  background: none;
+  border: 2px solid #45a29e;
+  color: #C5C6C7;
+  /* border-radius: 5px; */
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+}
+
+.comment_button:hover {
+  cursor: pointer;
+}
+
+.form_input:hover {
+  border-color: #adffff;
+}
+
+.form_input:focus {
+  border-color: #18ffff;
+}
+
+.form_label {
+  position: absolute;
+  cursor: text;
+  top: 10px;
+  padding: 0 0.2rem;
+  color: #C5C6C7;
+  left: 5px;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  background-color: #091819;
+}
+
+.comment_form {
+  position: relative;
+  box-sizing: border-box;
+}
