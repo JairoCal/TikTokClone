@@ -149,3 +149,7 @@
 .category_button {
 	width: 9vw;
 }
+
+.forms_holder {
+  overflow: hidden;
+}
