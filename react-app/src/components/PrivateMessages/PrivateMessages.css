@@ -40,6 +40,7 @@
 
 .message_list {
   height: 90vh;
+  overflow-y:scroll
 }
 
 #message_input {
