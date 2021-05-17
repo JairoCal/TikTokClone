@@ -277,7 +277,6 @@ function Videos() {
       </div>
       <div
         className="comments_container"
-        style={{ backgroundImage: "url(/background4.jpeg)" }}
       >
         <div className="comments_header">
           <h1>Comments!</h1>

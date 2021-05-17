@@ -30,7 +30,7 @@ function LeftNavBar() {
   };
 
   return (
-    <nav style={{ backgroundImage: "url(/background4.jpeg)"}} className="left_navbar">
+    <nav className="left_navbar">
       <div className="left_navbar_header">
         <h1>Following</h1>
       </div>
