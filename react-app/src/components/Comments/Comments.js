@@ -6,7 +6,7 @@ import "./Comments.css";
 
 import { getVideoComments, postComment, Unload } from "../../store/Comments";
 
-function Comments({videoId}) {
+function Comments({ videoId }) {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.videoComments);
   const user = useSelector((state) => state.session.user);
@@ -21,18 +21,18 @@ function Comments({videoId}) {
       dispatch(getVideoComments(Number(videoId)));
     }
     return () => {
-      dispatch(Unload())
-    }
+      dispatch(Unload());
+    };
   }, [dispatch, videoId]);
 
   const sendComment = (e) => {
     e.preventDefault();
     let video_id = Number(videoId);
-    let user_id = Number(user.id)
-    dispatch(postComment(message, video_id, user_id))
-    setMessage("")
+    let user_id = Number(user.id);
+    dispatch(postComment(message, video_id, user_id));
+    setMessage("");
     scrollToBottom();
-  }
+  };
   return (
     <div className="comments_input_holder">
       <ul className="all_comments">
@@ -61,7 +61,7 @@ function Comments({videoId}) {
                     </div>
                   </div>
                   <div className="comment_message">
-                    <p>{comment.message}</p>
+                    <p className="comment_text">{comment.message}</p>
                   </div>
                 </div>
               </div>
@@ -70,12 +70,12 @@ function Comments({videoId}) {
       <div className="message_bar">
         <form onSubmit={sendComment} className="comment_form">
           <input
-            className="comment_input"
+            className="form_input"
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Comment..."
           ></input>
+          <label className="form_label">Comment</label>
           <button className="comment_button" onClick={sendComment}>
             Comment
           </button>

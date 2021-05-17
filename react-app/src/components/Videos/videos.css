@@ -7,7 +7,7 @@ html {
   margin-left: 25vw;
   height: 95vh;
   background-color: #1f2833;
-  color: #45a29e;
+  color: #66FCF1;
 }
 
 
@@ -19,8 +19,8 @@ html {
   scroll-snap-type: y mandatory;
   background-color: black;
   border-radius: 10px;
-  border-left: 1px solid #c5c6c7;
-  border-right: 1px solid #c5c6c7;
+  border-left: 2px solid #45A29E;
+  border-right: 2px solid #45A29E;
 }
 
 .video_container::-webkit-scrollbar {

@@ -7,6 +7,11 @@ import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
 import VideoForm from "../auth/VideoForm";
 
+// Materials Icons
+import HomeIcon from "@material-ui/icons/Home";
+import PublishIcon from "@material-ui/icons/Publish";
+import EmailIcon from "@material-ui/icons/Email";
+
 const NavBar = () => {
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
@@ -30,7 +35,7 @@ const NavBar = () => {
     <nav className="bottom_navbar">
       <div>
         <NavLink to="/" exact={true} activeClassName="active">
-          Home
+          <HomeIcon></HomeIcon>
         </NavLink>
       </div>
       {!user && (
@@ -45,12 +50,16 @@ const NavBar = () => {
       )}
       {user && (
         <div>
-          <a onClick={showVideoForm}>Upload Video</a>
+          <a onClick={showVideoForm}>
+            <PublishIcon />
+          </a>
         </div>
       )}
       {user && (
         <div>
-          <NavLink to="/privatemessages">DMs</NavLink>
+          <NavLink to="/privatemessages">
+            <EmailIcon />
+          </NavLink>
         </div>
       )}
       {user && (

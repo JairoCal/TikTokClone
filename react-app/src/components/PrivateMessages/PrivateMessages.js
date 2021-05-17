@@ -50,31 +50,29 @@ function PrivateMessages() {
   }, [roomId]);
 
   return (
-    <div>
+    <div className="messages_holder">
       <style type="text/css">{`.left_navbar {display: none}`}</style>
-      <div>
-        <div className="recipients_list_bar">
-          <h2>Messaged Users</h2>
-          {recipientsList.length > 0 &&
-            recipientsList.map((recipient) => (
-              <div
+      <div className="recipients_list_bar">
+        <h2>Messaged Users</h2>
+        {recipientsList.length > 0 &&
+          recipientsList.map((recipient) => (
+            <div
               key={recipient.id}
-                id={recipient.id}
-                className={recipient.username}
-                onClick={onClick}
-              >
-                {recipient.username}
-              </div>
-            ))}
-        </div>
-        <div className="messages_section">
-          <div>
-            <DirectMessagesText
-              currentRecipientId={currentRecipientId}
-              roomId={roomId}
-              receiver_id={receiver_id}
-            />
-          </div>
+              id={recipient.id}
+              className={recipient.username}
+              onClick={onClick}
+            >
+              {recipient.username}
+            </div>
+          ))}
+      </div>
+      <div className="messages_section">
+        <div>
+          <DirectMessagesText
+            currentRecipientId={currentRecipientId}
+            roomId={roomId}
+            receiver_id={receiver_id}
+          />
         </div>
       </div>
     </div>

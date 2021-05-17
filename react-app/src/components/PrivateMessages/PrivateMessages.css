@@ -1,0 +1,94 @@
+.messages_holder {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.recipients_list_bar {
+  border-right: 1px solid #45a29e;
+  height: 95vh;
+  width: 25vw;
+  box-sizing: border-box;
+  background-color: #1f2833;
+  color: #45a29e;
+}
+
+.messages_section {
+  width: 75vw;
+  box-sizing: border-box;
+  background-color: #1f2833;
+}
+
+.message_holder {
+  display: flex;
+  width: 75vw;
+  height: 75px;
+  box-sizing: border-box;
+}
+
+.user_image_message {
+  width: 40px;
+  height: 40px;
+}
+
+.message_info {
+  display: flex;
+}
+
+.message_content {
+  color: #c5c6c7;
+}
+
+.message_list {
+  height: 90vh;
+}
+
+#message_input {
+  background-color: white;
+  width: 70vw;
+}
+
+.message_input {
+  position: absolute;
+  height: 5vh;
+  outline: none;
+  background: none;
+  color: white;
+  /* border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px; */
+  width: 70vw;
+  border: 2px solid #45a29e;
+  box-sizing: border-box;
+}
+
+.message_input:focus ~ .form_label {
+  top: -0.5rem;
+  font-size: 12px;
+  left: 9.5px;
+  color: #18ffff;
+}
+
+.message_input:hover {
+  border-color: #adffff;
+}
+
+.message_input:focus {
+  border-color: #18ffff;
+}
+
+.message_label {
+  position: absolute;
+  cursor: text;
+  top: 10px;
+  padding: 0 0.2rem;
+  color: #c5c6c7;
+  left: 5px;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  background-color: #1f2833;
+}
+
+.message_input:focus ~ .message_label {
+  top: -0.5rem;
+  font-size: 12px;
+  left: 9.5px;
+  color: #18ffff;
+}
