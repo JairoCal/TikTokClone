@@ -79,9 +79,6 @@ function VideoForm() {
   return (
     <div className="video_form">
       <form id="video_form" className="video_form" onSubmit={onUpload}>
-        <div>
-          <button onClick={moveThis}>Testing if this moves</button>
-        </div>
         <div className="video_input">
           <input
             placeholder="Title"

@@ -120,6 +120,25 @@
   display: flex;
 }
 
+.user_category_form {
+  /* position: absolute; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: blue;
+  transition: 1s;
+  display: flex;
+}
+
+#categories_checkbox {
+  margin: 0;
+}
+
 .video_form {
   position: absolute;
   top: 0;
@@ -138,16 +157,16 @@
   left: 550px;
 }
 
-.categories_checkbox{
-	display: flex;
+.categories_checkbox {
+  display: flex;
 }
 .checkbox_holder {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .category_button {
-	width: 9vw;
+  width: 9vw;
 }
 
 .forms_holder {

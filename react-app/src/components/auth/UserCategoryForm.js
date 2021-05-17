@@ -5,7 +5,6 @@ import { hideModal2 } from "../../store/modal2";
 
 import "./auth.css";
 
-
 function UserCategoryForm() {
   const dispatch = useDispatch();
   const user_id = useSelector((state) => state.session.user.id);
@@ -28,22 +27,43 @@ function UserCategoryForm() {
     dispatch(hideModal2());
   };
   return (
-    <div>
-      <form onSubmit={onCategoryAdd}>
+    <form
+      id="video_category"
+      className="user_category_form"
+      onSubmit={onCategoryAdd}
+    >
+      <div className="checkbox_holder">
         {categories.length > 0 &&
           categories.map((category) => (
-            <div key={category.id}>
-              <input
-                id={category.id}
-                type="checkbox"
-                onChange={onCheck}
-              ></input>
-              <label>{category.genre}</label>
+            <div
+              id="categories_checkbox"
+              className="categories_checkbox"
+              key={category.id}
+            >
+              <label className="checkbox_label">
+                <input
+                  id={category.id}
+                  type="checkbox"
+                  onChange={onCheck}
+                ></input>
+                <span></span>
+                <i className="switch"></i>
+              </label>
+              <div>
+                <label className="category_label">{category.genre}</label>
+              </div>
             </div>
           ))}
-        <button onClick={onCategoryAdd}>Add to Category</button>
-      </form>
-    </div>
+        <div className="category_label">
+          <button
+            className="private_message_button categories_button"
+            onClick={onCategoryAdd}
+          >
+            Follow Categories
+          </button>
+        </div>
+      </div>
+    </form>
   );
 }
 
