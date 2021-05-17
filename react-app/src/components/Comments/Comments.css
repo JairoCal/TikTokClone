@@ -43,6 +43,7 @@
   height: 95vh;
   min-width: 25vw;
   max-width: 25vw;
+  background-image: url("../images/background4.jpeg");
 }
 
 .comments_header {
