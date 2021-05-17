@@ -35,11 +35,11 @@ def upload_video(user_id):
         else:
             url = ""
         video = Video(
-            user_id=form.data['user_id'],
-            title=form.data['title'],
-            description=form.data['description'],
+            user_id=form.data["user_id"],
+            title=form.data["title"],
+            description=form.data["description"],
             video_url=url,
-            created_at=form.data['created_at']
+            created_at=form.data["created_at"]
         )
         db.session.add(video)
         db.session.commit()
