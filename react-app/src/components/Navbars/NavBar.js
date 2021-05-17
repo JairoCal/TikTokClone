@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { showModal, setCurrentModal } from "../../store/modal";
+import { showModal2, setCurrentModal2 } from "../../store/modal2";
 
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
@@ -17,13 +18,13 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   const showLogin = () => {
-    dispatch(setCurrentModal(LoginForm));
-    dispatch(showModal());
+    dispatch(setCurrentModal2(LoginForm));
+    dispatch(showModal2());
   };
 
   const showSignup =  () => {
-    dispatch(setCurrentModal(SignUpForm))
-    dispatch(showModal());
+    dispatch(setCurrentModal2(SignUpForm))
+    dispatch(showModal2());
   }
   
   const showVideoForm =  () => {

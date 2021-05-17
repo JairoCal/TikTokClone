@@ -11,6 +11,7 @@ import LeftNavBar from "./components/Navbars/LeftNavBar";
 import Videos from "./components/Videos/Videos";
 import ProfilePage from "./components/profilepage/ProfilePage";
 import Modal from "./components/Modal/index";
+import Modal2 from "./components/Modal/modal2"
 import PrivateMessages from "./components/PrivateMessages/PrivateMessages";
 import UsersProfile from "./components/UsersProfile/UsersProfile";
 
@@ -33,6 +34,7 @@ function App() {
   return (
     <BrowserRouter>
       <Modal />
+      <Modal2 />
       <LeftNavBar />
       <NavBar />
       <Switch>
