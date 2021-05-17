@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { userFollowCategory } from "../../store/FollowCategory";
-import { hideModal } from "../../store/modal";
+import { hideModal2 } from "../../store/modal2";
 
 import "./auth.css";
 
@@ -25,7 +25,7 @@ function UserCategoryForm() {
   const onCategoryAdd = (e) => {
     e.preventDefault();
     dispatch(userFollowCategory(checkedCategories, user_id));
-    dispatch(hideModal());
+    dispatch(hideModal2());
   };
   return (
     <div>

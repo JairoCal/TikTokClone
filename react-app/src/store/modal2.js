@@ -1,10 +1,10 @@
-const SHOW2 = "modal/show";
+const SHOW2 = "modal2/show";
 
-const HIDE2 = "modal/hide";
+const HIDE2 = "modal2/hide";
 
-const CURRENT2 = "modal/current";
+const CURRENT2 = "modal2/current";
 
-const MOUNT2 = "modal/mount";
+const MOUNT2 = "modal2/mount";
 
 export const showModal2 = () => ({
   type: SHOW2,
@@ -27,13 +27,13 @@ export default function reducer(
 ) {
   switch (action.type) {
     case SHOW2:
-      return { ...state, display: true };
+      return { ...state, display2: true };
     case HIDE2:
-      return { ...state, display: false };
+      return { ...state, display2: false };
     case CURRENT2:
-      return { ...state, current: action.current };
+      return { ...state, current2: action.current };
     case MOUNT2:
-      return { ...state, mount: action.mount };
+      return { ...state, mount2: action.mount };
     default:
       return state;
   }

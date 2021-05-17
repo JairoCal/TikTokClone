@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
-import { hideModal } from "../../store/modal";
+import { hideModal2 } from "../../store/modal2";
 
 import "./auth.css";
 
@@ -20,7 +20,7 @@ const LoginForm = () => {
     if (data.errors) {
       setErrors(data.errors);
     } else {
-      dispatch(hideModal());
+      dispatch(hideModal2());
       history.push("/");
     }
   };
