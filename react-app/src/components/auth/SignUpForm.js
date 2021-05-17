@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import { hideModal2, showModal2, setCurrentModal2 } from "../../store/modal2";
-import UserCategoryForm from '../auth/UserCategoryForm'
+import UserCategoryForm from "../auth/UserCategoryForm";
 
 import "./auth.css";
 
@@ -30,8 +30,8 @@ const SignUpForm = () => {
         signUp(username, email, firstName, lastName, about, image, password)
       );
       await dispatch(hideModal2());
-      dispatch(setCurrentModal2(UserCategoryForm))
-      dispatch(showModal2())
+      dispatch(setCurrentModal2(UserCategoryForm));
+      dispatch(showModal2());
       // history.push("/");
     }
   };
@@ -120,12 +120,12 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className="signup_input">
-          <textarea
+          <input
             placeholder="About"
             name="about"
             onChange={updateAbout}
             value={about}
-          ></textarea>
+          ></input>
         </div>
         <div className="signup_div_image">
           <input

@@ -29,7 +29,7 @@ function UsersProfile() {
           <div className="profile_my_videos_section">
             <h1>My Videos</h1>
             <div className="profile_my_videos_container">
-              <h1>Users videos coming soon...</h1>
+              <h1>Users videos coming soon..</h1>
             </div>
           </div>
         </div>
