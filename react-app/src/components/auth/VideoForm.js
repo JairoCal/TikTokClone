@@ -7,6 +7,7 @@ import VideoCategoryForm from "../auth/VideoCategoryForm";
 import { videoFollowCategory } from "../../store/FollowCategory";
 
 import "./VideoForm.css";
+import "./auth.css";
 
 function VideoForm() {
   const dispatch = useDispatch();
@@ -27,10 +28,10 @@ function VideoForm() {
       setImageLoading(false);
       // dispatch(setCurrentModal(VideoCategoryForm));
       // dispatch(showModal());
-       const el1 = document.getElementById("video_form");
-       const el2 = document.getElementById("video_category");
-       el1.style.left = "-800px";
-       el2.style.left = "0px";
+      const el1 = document.getElementById("video_form");
+      const el2 = document.getElementById("video_category");
+      el1.style.left = "-800px";
+      el2.style.left = "0px";
     }
   };
 
@@ -76,12 +77,12 @@ function VideoForm() {
   };
 
   return (
-    <div className="forms_holder">
+    <div className="video_form">
       <form id="video_form" className="video_form" onSubmit={onUpload}>
         <div>
           <button onClick={moveThis}>Testing if this moves</button>
         </div>
-        <div>
+        <div className="video_input">
           <input
             placeholder="Title"
             type="text"
@@ -90,7 +91,7 @@ function VideoForm() {
             value={title}
           ></input>
         </div>
-        <div>
+        <div className="video_input">
           <input
             placeholder="Description"
             type="text"
@@ -99,7 +100,7 @@ function VideoForm() {
             value={description}
           ></input>
         </div>
-        <div>
+        <div className="video_input">
           <input
             type="file"
             name="video_url"
@@ -108,7 +109,9 @@ function VideoForm() {
             onChange={updateVideo}
           ></input>
         </div>
-        <button type="submit">Upload</button>
+        <div className="video_input">
+          <input type="submit" value="Upload"></input>
+        </div>
         {imageLoading && (
           <div className="container">
             <div className="loading">
@@ -141,7 +144,9 @@ function VideoForm() {
                 </div>
               </div>
             ))}
-          <button className="category_button" onClick={onCategoryAdd}>Add to Category</button>
+          <button className="category_button" onClick={onCategoryAdd}>
+            Add to Category
+          </button>
         </div>
       </form>
     </div>
