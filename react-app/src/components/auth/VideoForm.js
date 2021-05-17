@@ -109,8 +109,14 @@ function VideoForm() {
             onChange={updateVideo}
           ></input>
         </div>
-        <div className="video_input">
-          <input type="submit" value="Upload"></input>
+        <div className="upload_button">
+          <button
+            className="private_message_button upload_button"
+            type="submit"
+            value="Upload"
+          >
+            Upload
+          </button>
         </div>
         {imageLoading && (
           <div className="container">
@@ -133,20 +139,30 @@ function VideoForm() {
             categories.map((category) => (
               <div className="categories_checkbox" key={category.id}>
                 <div>
-                  <input
-                    id={category.id}
-                    type="checkbox"
-                    onChange={onCheck}
-                  ></input>
+                  <label className="checkbox_label">
+                    <input
+                      id={category.id}
+                      type="checkbox"
+                      onChange={onCheck}
+                    ></input>
+                    <span></span>
+                    <i className="switch"></i>
+                  </label>
                 </div>
                 <div>
-                  <label>{category.genre}</label>
+                  <label className="category_label">{category.genre}</label>
                 </div>
               </div>
             ))}
-          <button className="category_button" onClick={onCategoryAdd}>
-            Add to Category
-          </button>
+          <div className="categories_button">
+            <button
+              className="private_message_button categories_button"
+              onClick={onCategoryAdd}
+              type="submit"
+            >
+              Add Categories
+            </button>
+          </div>
         </div>
       </form>
     </div>

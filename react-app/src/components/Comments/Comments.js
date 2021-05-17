@@ -68,18 +68,20 @@ function Comments({ videoId }) {
             ))}
       </ul>
       <div className="message_bar">
-        <form onSubmit={sendComment} className="comment_form">
-          <input
-            className="form_input"
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></input>
-          <label className="form_label">Comment</label>
-          <button className="comment_button" onClick={sendComment}>
-            Comment
-          </button>
-        </form>
+        {user && (
+          <form onSubmit={sendComment} className="comment_form">
+            <input
+              className="form_input"
+              type="text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></input>
+            <label className="form_label">Comment</label>
+            <button className="comment_button" onClick={sendComment}>
+              Comment
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );

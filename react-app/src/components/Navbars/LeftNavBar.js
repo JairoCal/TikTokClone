@@ -19,7 +19,7 @@ function LeftNavBar() {
     if (user) {
       dispatch(getUserFollowing(user.id));
     }
-    dispatch(getCategories())
+    dispatch(getCategories());
   }, [dispatch, user]);
 
   const showUserForm = (e) => {
@@ -31,9 +31,11 @@ function LeftNavBar() {
 
   return (
     <nav className="left_navbar">
-      <div className="left_navbar_header">
-        <h1>Following</h1>
-      </div>
+      {user && (
+        <div className="left_navbar_header">
+          <h1>Following</h1>
+        </div>
+      )}
       <div>
         {user &&
           following.length > 0 &&
