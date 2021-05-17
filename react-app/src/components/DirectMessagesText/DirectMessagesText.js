@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import Moment from "react-moment";
 import "moment-timezone";
 
@@ -60,7 +60,8 @@ function DirectMessagesText(props) {
               <div className="user_image_box">
                 <img
                   className="user_image_message"
-                  src={message.profile_image? message.profile_image: ""} alt=""
+                  src={message.profile_image ? message.profile_image : ""}
+                  alt=""
                 ></img>
               </div>
               <div className="message_box">
@@ -81,15 +82,15 @@ function DirectMessagesText(props) {
           ))}
       </ul>
       <div className="message_bar">
-        <form onSubmit={onClick} className="message_form">
-          <textarea
+        <form onSubmit={onClick} className="comment_form">
+          <input
             className="message_input"
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Message..."
-          ></textarea>
-          <button className="message_send" onClick={onClick}>
+          ></input>
+          <label className="message_label">Message</label>
+          <button className="comment_button" onClick={onClick}>
             Send
           </button>
         </form>

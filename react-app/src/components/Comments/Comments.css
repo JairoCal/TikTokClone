@@ -15,21 +15,26 @@
   flex-direction: column;
 }
 
-.comment_top {
+.comment_top,
+.message_info {
   display: flex;
   align-items: center;
   margin-bottom: 4px;
 }
+
 .comment_image {
   padding-right: 8px;
 }
 
-.comment_username {
+.comment_username,
+.message_username {
   font-weight: 700;
   margin-right: 6px;
-  color: #45A29E
+  color: #45a29e;
 }
-.comment_time {
+
+.comment_time,
+.message_time {
   font-size: 12px;
   color: #c5c6c7;
 }
@@ -39,6 +44,7 @@
   min-width: 25vw;
   max-width: 25vw;
 }
+
 .comments_header {
   display: flex;
   align-items: center;
@@ -50,16 +56,19 @@
   overflow-y: scroll;
   height: 85vh;
 }
+
 .all_comments::-webkit-scrollbar {
   display: none;
 }
 
-.comment_form {
+.comment_form,
+.message_form {
   display: flex;
   height: 5vh;
 }
 
-.comment_input {
+.comment_input,
+.message_input {
   width: 100%;
 }
 

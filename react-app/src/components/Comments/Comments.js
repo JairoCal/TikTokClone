@@ -6,7 +6,7 @@ import "./Comments.css";
 
 import { getVideoComments, postComment, Unload } from "../../store/Comments";
 
-function Comments({videoId}) {
+function Comments({ videoId }) {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state.videoComments);
   const user = useSelector((state) => state.session.user);
@@ -21,18 +21,18 @@ function Comments({videoId}) {
       dispatch(getVideoComments(Number(videoId)));
     }
     return () => {
-      dispatch(Unload())
-    }
+      dispatch(Unload());
+    };
   }, [dispatch, videoId]);
 
   const sendComment = (e) => {
     e.preventDefault();
     let video_id = Number(videoId);
-    let user_id = Number(user.id)
-    dispatch(postComment(message, video_id, user_id))
-    setMessage("")
+    let user_id = Number(user.id);
+    dispatch(postComment(message, video_id, user_id));
+    setMessage("");
     scrollToBottom();
-  }
+  };
   return (
     <div className="comments_input_holder">
       <ul className="all_comments">
@@ -49,7 +49,7 @@ function Comments({videoId}) {
                 <div className="comment_info">
                   <div className="comment_top">
                     <div className="comment_username">
-                      <p >{comment.user[0].username} </p>
+                      <p>{comment.user[0].username} </p>
                     </div>
                     <div className="comment_time">
                       <Moment
