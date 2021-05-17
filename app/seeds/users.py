@@ -74,10 +74,10 @@ def seed_users_videos_categories():
     auto_seed(75)
 
     # ------------------Videos----------------------------------
-    trailer = Video(user_id=3, title='Hogwarts Legacy Trailer',
-                    description='Trailer for the new Harry Potter Game', video_url='https://tiktokclonejairo.s3.amazonaws.com/5aac0ee89f55467e93f2b4c13060be11.mp4', created_at=datetime.now())
-    same_trailer = Video(user_id=1, title='Worst Translator', description='Small skit from comedy central (do not own the rights)',
-                         video_url='https://tiktokclonejairo.s3.amazonaws.com/12496f16716c4d0fa18964277a41efb3.mp4', created_at=datetime.now())
+    trailer = Video(user_id=3, title='Dancing Dog',
+                    description='Happy Dog', video_url='https://tiktokclonejairo.s3.amazonaws.com/c0c9fea8e0cd4d66b1b6875d04970489.mp4', created_at=datetime.now())
+    same_trailer = Video(user_id=1, title='Upgrade Stroller', description='Upgraded sisters stroller',
+                         video_url='https://tiktokclonejairo.s3.amazonaws.com/ec0b9e3fb730437cb0d3d85b278732f3.mp4', created_at=datetime.now())
     trailer3 = Video(user_id=1, title='Substitute Teacher', description='Small skit from comedy central (do not own the rights)',
                      video_url='https://tiktokclonejairo.s3.amazonaws.com/dd9ebb37edc64550a38f5cd385da79b7.mp4', created_at=datetime.now())
 
