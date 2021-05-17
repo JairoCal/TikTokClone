@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
-import { hideModal } from "../../store/modal";
+import { hideModal2 } from "../../store/modal2";
 
 import "./auth.css";
 
@@ -20,7 +20,18 @@ const LoginForm = () => {
     if (data.errors) {
       setErrors(data.errors);
     } else {
-      dispatch(hideModal());
+      dispatch(hideModal2());
+      history.push("/");
+    }
+  };
+
+  const onDemoLogin = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login("demo@aa.io", "password"));
+    if (data.errors) {
+      setErrors(data.errors);
+    } else {
+      dispatch(hideModal2());
       history.push("/");
     }
   };
@@ -70,6 +81,17 @@ const LoginForm = () => {
           />
           <div className="login_input">
             <input type="submit" value="Login" />
+          </div>
+        </div>
+      </form>
+      <form onSubmit={onDemoLogin}>
+        <div className="login_input">
+          <input name="email" type="text" value="demo@aa.io" hidden />
+        </div>
+        <div className="login_input">
+          <input name="password" type="password" value="password" hidden />
+          <div className="login_input">
+            <input type="submit" value="Demo" />
           </div>
         </div>
       </form>

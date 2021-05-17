@@ -8,7 +8,7 @@ import { getCategoriesFeed } from "../../store/foryou";
 import { showModal, setCurrentModal } from "../../store/modal";
 import UserForm from "../auth/UserForm";
 import { getId } from "../../store/User";
-import { getUserName } from '../../store/UserName'
+import { getUserName } from "../../store/UserName";
 
 import Ticker from "react-ticker";
 // Import Icons
@@ -275,11 +275,9 @@ function Videos() {
           </div>
         )}
       </div>
-      <div
-        className="comments_container"
-      >
+      <div className="comments_container">
         <div className="comments_header">
-          <h1>Comments!</h1>
+          <h1>Comments</h1>
         </div>
         <div>
           <Comments videoId={videoId} />

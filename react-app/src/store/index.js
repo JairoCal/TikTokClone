@@ -6,6 +6,7 @@ import friendsFeed from "./friendsfeed";
 import categoriesFeed from "./foryou";
 import allVideos from "./allvideos";
 import modal from "./modal";
+import modal2 from "./modal2"
 import privateMessageRecipients from "./privateMessageRecipients";
 import privateMessages from "./ PrivateMessages";
 import videoComments from "./Comments";
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   userName,
   categories,
   video,
+  modal2,
 });
 
 let enhancer;

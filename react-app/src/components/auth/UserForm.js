@@ -6,6 +6,8 @@ import { hideModal } from "../../store/modal";
 import { privateSocket } from "../DirectMessagesText/DirectMessagesText";
 import { followUploader } from "../../store/following";
 
+import "./UserForm.css";
+
 function UserForm() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -69,22 +71,36 @@ function UserForm() {
   }, [dispatch, recipientId]);
 
   return (
-    <div>
-      <h1>Hi testing</h1>
+    <div className="user_form_holder">
+      <div className="user_form_name">
+        {recipientUserName && <h1>{recipientUserName}</h1>}
+      </div>
       {recipientId && (
-        <NavLink to={`/user/profile/${recipientId}`}>
-          <button onClick={onProfile}>Profile Page</button>
-        </NavLink>
+        <div>
+          <NavLink to={`/user/profile/${recipientId}`}>
+            <button className="profile_page_button" onClick={onProfile}>
+              Profile Page
+            </button>
+          </NavLink>
+        </div>
       )}
-      {recipientUserName && <h1>{recipientUserName}</h1>}
       {recipientId && recipientUserName && (
         <div>
-          <button onClick={privateMessageHandler}>Private Message</button>
+          <button
+            className="private_message_button"
+            onClick={privateMessageHandler}
+          >
+            Private Message
+          </button>
         </div>
       )}
       {recipientId && (
         <div>
-          <button onClick={onFollow} disabled={followButton}>
+          <button
+            className="user_follow_button"
+            onClick={onFollow}
+            disabled={followButton}
+          >
             Follow
           </button>
         </div>
