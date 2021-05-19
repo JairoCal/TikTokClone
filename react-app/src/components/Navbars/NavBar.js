@@ -22,15 +22,15 @@ const NavBar = () => {
     dispatch(showModal2());
   };
 
-  const showSignup =  () => {
-    dispatch(setCurrentModal2(SignUpForm))
+  const showSignup = () => {
+    dispatch(setCurrentModal2(SignUpForm));
     dispatch(showModal2());
-  }
-  
-  const showVideoForm =  () => {
-    dispatch(setCurrentModal(VideoForm))
+  };
+
+  const showVideoForm = () => {
+    dispatch(setCurrentModal(VideoForm));
     dispatch(showModal());
-  }
+  };
 
   return (
     <nav className="bottom_navbar">
@@ -67,7 +67,7 @@ const NavBar = () => {
         <div className="user_logout_container">
           <div>
             <div className="user_info">
-              <img src={user.profile_image}></img>
+              <img className="image_radius" src={user.profile_image}></img>
               <NavLink to="/myprofile" exact={true} activeClassName="active">
                 {user.username}
               </NavLink>

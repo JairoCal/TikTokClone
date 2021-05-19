@@ -40,7 +40,18 @@
 
 .message_list {
   height: 90vh;
-  overflow-y:scroll
+  overflow-y: scroll;
+}
+
+.message_list::-webkit-scrollbar {
+  /* display: none; */
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  border-radius: none;
 }
 
 #message_input {
