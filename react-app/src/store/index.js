@@ -16,6 +16,7 @@ import userName from "./UserName";
 import categories from "./Categories";
 import video from "./uploadvideo";
 import VideoId from "./VideoId";
+import UserVideos from "./UsersVideos";
 
 const rootReducer = combineReducers({
   session,
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   video,
   modal2,
   VideoId,
+  UserVideos,
 });
 
 let enhancer;

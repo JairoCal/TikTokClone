@@ -47,7 +47,7 @@ function App() {
         <Route path="/" exact={true}>
           <Videos />
         </Route>
-        <ProtectedRoute path="/myprofile/:user_id" exact={true}>
+        <ProtectedRoute path="/myprofile/:userId" exact={true}>
           <ProfilePage />
         </ProtectedRoute>
         <Route path="/user/profile/:user_id" exact={true}>
