@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import Moment from "react-moment";
 import "moment-timezone";
 import "./Comments.css";
+import { showModal, setCurrentModal } from "../../store/modal";
+import GiphySelector from "../Giphy/GiphySelector";
+import GifIcon from "@material-ui/icons/Gif";
 
 import { getVideoComments, postComment, Unload } from "../../store/Comments";
 
@@ -33,6 +36,17 @@ function Comments({ videoId }) {
     setMessage("");
     scrollToBottom();
   };
+
+  const openGiphy = () => {
+    dispatch(setCurrentModal(GiphySelector));
+    dispatch(showModal());
+  };
+
+  const styling = {
+    height: "5vh",
+    fontSize: "2.5rem",
+  };
+
   return (
     <div className="comments_input_holder">
       <ul className="all_comments">
@@ -61,7 +75,16 @@ function Comments({ videoId }) {
                     </div>
                   </div>
                   <div className="comment_message">
-                    <p className="comment_text">{comment.message}</p>
+                    {!comment.message.includes("giphy.com/embed/") && (
+                      <p className="comment_text">{comment.message}</p>
+                    )}
+                    {comment.message.includes("embed") && (
+                      <iframe
+                        src={comment.message}
+                        alt=""
+                        frameborder="0"
+                      ></iframe>
+                    )}
                   </div>
                 </div>
               </div>
@@ -77,6 +100,9 @@ function Comments({ videoId }) {
               onChange={(e) => setMessage(e.target.value)}
             ></input>
             <label className="form_label">Comment</label>
+            <a className="giphy_open" onClick={openGiphy}>
+              <GifIcon style={styling} />
+            </a>
             <button className="comment_button" onClick={sendComment}>
               Comment
             </button>

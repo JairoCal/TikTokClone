@@ -9,6 +9,7 @@ import { showModal, setCurrentModal } from "../../store/modal";
 import UserForm from "../auth/UserForm";
 import { getId } from "../../store/User";
 import { getUserName } from "../../store/UserName";
+import { getVideoId } from "../../store/VideoId";
 
 import Ticker from "react-ticker";
 // Import Icons
@@ -52,6 +53,7 @@ function Videos() {
       videoRef.current.pause();
       setPlaying(false);
       videoRef.current = e.target;
+      dispatch(getVideoId(videoRef.current.id));
       setVideoId(videoRef.current.id);
       videoRef.current.play();
       setPlaying(true);
@@ -59,6 +61,7 @@ function Videos() {
     // on no videos playing we trigger this which will then set a new current and play it
     else {
       videoRef.current = e.target;
+      dispatch(getVideoId(videoRef.current.id));
       setVideoId(videoRef.current.id);
       onVideoClick();
     }
