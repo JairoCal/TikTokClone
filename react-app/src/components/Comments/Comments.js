@@ -61,7 +61,16 @@ function Comments({ videoId }) {
                     </div>
                   </div>
                   <div className="comment_message">
-                    <p className="comment_text">{comment.message}</p>
+                    {!comment.message.includes("giphy.com/embed/") && (
+                      <p className="comment_text">{comment.message}</p>
+                    )}
+                    {comment.message.includes("embed") && (
+                      <iframe
+                        src={comment.message}
+                        alt=""
+                        frameborder="0"
+                      ></iframe>
+                    )}
                   </div>
                 </div>
               </div>
