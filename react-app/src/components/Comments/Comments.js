@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import Moment from "react-moment";
 import "moment-timezone";
 import "./Comments.css";
-import ReactGiphySearchbox from "react-giphy-searchbox";
+import { showModal, setCurrentModal } from "../../store/modal";
+import GiphySelector from "../Giphy/GiphySelector";
+import GifIcon from "@material-ui/icons/Gif";
 
 import { getVideoComments, postComment, Unload } from "../../store/Comments";
 
@@ -35,17 +37,14 @@ function Comments({ videoId }) {
     scrollToBottom();
   };
 
-  const onClick = (item) => {
-    console.log(item);
-    setMessage(item.embed_url);
-    console.log(item.embed_url);
-    let gif = item.embed_url;
-    console.log(gif);
-    let video_id = Number(videoId);
-    let user_id = Number(user.id);
-    dispatch(postComment(gif, video_id, user_id));
-    setMessage("");
-    scrollToBottom();
+  const openGiphy = () => {
+    dispatch(setCurrentModal(GiphySelector));
+    dispatch(showModal());
+  };
+
+  const styling = {
+    height: "5vh",
+    fontSize: "2.5rem",
   };
 
   return (
@@ -101,21 +100,15 @@ function Comments({ videoId }) {
               onChange={(e) => setMessage(e.target.value)}
             ></input>
             <label className="form_label">Comment</label>
+            <a className="giphy_open" onClick={openGiphy}>
+              <GifIcon style={styling} />
+            </a>
             <button className="comment_button" onClick={sendComment}>
               Comment
             </button>
           </form>
         )}
       </div>
-      <ReactGiphySearchbox
-        apiKey="9Ixlv3DWC1biJRI57RanyL7RTbfzz0o7"
-        // onSelect={(item) => console.log(item)}
-        onSelect={onClick}
-        masonryConfig={[
-          { columns: 2, imageWidth: 110, gutter: 5 },
-          { mq: "700px", columns: 3, imageWidth: 120, gutter: 5 },
-        ]}
-      />
     </div>
   );
 }

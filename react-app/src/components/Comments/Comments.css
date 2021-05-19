@@ -81,3 +81,29 @@
 .comment_text {
   color: #c5c6c7;
 }
+
+.giphy_open {
+  position: absolute;
+  right: 5vw;
+}
+
+.reactGiphySearchbox-listWrapper {
+  width: fit-content;
+  border-radius: none;
+}
+
+.reactGiphySearchbox-listWrapper > * {
+  border-radius: none;
+}
+
+*::webkit-scrollbar {
+  display: none;
+}
+
+.reactGiphySearchbox-image > img {
+  border-radius: none;
+}
+
+img {
+  border-radius: none;
+}
