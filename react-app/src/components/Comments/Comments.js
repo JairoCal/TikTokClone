@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Moment from "react-moment";
 import "moment-timezone";
 import "./Comments.css";
+import ReactGiphySearchbox from "react-giphy-searchbox";
 
 import { getVideoComments, postComment, Unload } from "../../store/Comments";
 
@@ -33,6 +34,20 @@ function Comments({ videoId }) {
     setMessage("");
     scrollToBottom();
   };
+
+  const onClick = (item) => {
+    console.log(item);
+    setMessage(item.embed_url);
+    console.log(item.embed_url);
+    let gif = item.embed_url;
+    console.log(gif);
+    let video_id = Number(videoId);
+    let user_id = Number(user.id);
+    dispatch(postComment(gif, video_id, user_id));
+    setMessage("");
+    scrollToBottom();
+  };
+
   return (
     <div className="comments_input_holder">
       <ul className="all_comments">
@@ -92,6 +107,15 @@ function Comments({ videoId }) {
           </form>
         )}
       </div>
+      <ReactGiphySearchbox
+        apiKey="9Ixlv3DWC1biJRI57RanyL7RTbfzz0o7"
+        // onSelect={(item) => console.log(item)}
+        onSelect={onClick}
+        masonryConfig={[
+          { columns: 2, imageWidth: 110, gutter: 5 },
+          { mq: "700px", columns: 3, imageWidth: 120, gutter: 5 },
+        ]}
+      />
     </div>
   );
 }

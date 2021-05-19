@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserFollowing } from "../../store/following";
 import { showModal, setCurrentModal } from "../../store/modal";
+import ReactGiphySearchbox from "react-giphy-searchbox";
 
 import UserForm from "../auth/UserForm";
 import { getId } from "../../store/User";
