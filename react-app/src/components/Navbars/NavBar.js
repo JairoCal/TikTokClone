@@ -68,7 +68,11 @@ const NavBar = () => {
           <div>
             <div className="user_info">
               <img className="image_radius" src={user.profile_image}></img>
-              <NavLink to="/myprofile" exact={true} activeClassName="active">
+              <NavLink
+                to={`/myprofile/${user.id}`}
+                exact={true}
+                activeClassName="active"
+              >
                 {user.username}
               </NavLink>
             </div>
