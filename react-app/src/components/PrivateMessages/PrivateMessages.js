@@ -68,7 +68,7 @@ function PrivateMessages() {
                   className={recipient.username}
                   onClick={onClick}
                 >
-                  {recipient.username}
+                  @{recipient.username}
                 </a>
               </div>
             </div>
