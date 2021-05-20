@@ -40,7 +40,15 @@
 
 .message_list {
   height: 90vh;
-  overflow-y:scroll
+  overflow-y: scroll;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  border-radius: none;
 }
 
 #message_input {
@@ -92,4 +100,12 @@
   font-size: 12px;
   left: 9.5px;
   color: #18ffff;
+}
+
+.messaged_users {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: #66fcf1;
 }

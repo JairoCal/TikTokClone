@@ -41,7 +41,11 @@ function LeftNavBar() {
           following.length > 0 &&
           following.map((following) => (
             <div key={following.username} className="followed_name">
-              <img src={following.profile_image} alt=""></img>
+              <img
+                className="image_radius"
+                src={following.profile_image}
+                alt=""
+              ></img>
               <div>
                 <a
                   id={following.id}

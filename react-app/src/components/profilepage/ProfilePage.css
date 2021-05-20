@@ -15,14 +15,19 @@
 }
 
 .logout_button {
-  border-radius: 10px;
+  border-radius: 15px;
   outline: none;
-  padding: 3.5px;
+  padding: 8px;
+  border: 2px solid #45a29e;
+  color: #c5c6c7;
+  background-color: transparent;
+  transition: 0.4s ease-in-out;
+  width: 120px;
 }
 
 .logout_button:hover {
   cursor: pointer;
-  background-color: #1f2833;
+  background-color: #45a29e;
   color: white;
 }
 
@@ -55,15 +60,39 @@
   display: flex;
   /* align-items: center; */
   justify-content: center;
+  flex-wrap: wrap;
   width: 100vw;
   height: 100%;
   box-sizing: border-box;
   height: 100%;
-  border: 3px solid blue;
+  border-top: 4px inset #45a29e;
   box-sizing: border-box;
   overflow-y: scroll;
 }
 
 .profile_my_videos_container::-webkit-scrollbar {
   display: none;
+}
+
+.video_player_user {
+  width: 250px;
+  overflow-y: scroll;
+  object-fit: fill;
+  border: 2.5px solid #45a29e;
+  border-radius: 10px;
+}
+
+.video_player_user::-webkit-scrollbar {
+  width: 7px;
+}
+
+.profile_video_holder {
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;
+
+  margin: 20px;
+}
+
+.profile_video_holder:hover {
+  transform: scale(1.06);
 }

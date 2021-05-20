@@ -53,16 +53,24 @@ function PrivateMessages() {
     <div className="messages_holder">
       <style type="text/css">{`.left_navbar {display: none}`}</style>
       <div className="recipients_list_bar">
-        <h2>Messaged Users</h2>
+        <h2 className="messaged_users">Messaged Users</h2>
         {recipientsList.length > 0 &&
           recipientsList.map((recipient) => (
-            <div
-              key={recipient.id}
-              id={recipient.id}
-              className={recipient.username}
-              onClick={onClick}
-            >
-              {recipient.username}
+            <div className="followed_name" key={recipient.id}>
+              <img
+                className="image_radius"
+                src={recipient.profile_image}
+                alt=""
+              ></img>
+              <div>
+                <a
+                  id={recipient.id}
+                  className={recipient.username}
+                  onClick={onClick}
+                >
+                  @{recipient.username}
+                </a>
+              </div>
             </div>
           ))}
       </div>

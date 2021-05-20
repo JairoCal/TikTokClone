@@ -58,7 +58,11 @@ function Comments({ videoId }) {
             .map((comment) => (
               <div className="comment_container">
                 <div className="comment_image">
-                  <img src={comment.user[0].profile_image} alt=""></img>
+                  <img
+                    className="image_radius"
+                    src={comment.user[0].profile_image}
+                    alt=""
+                  ></img>
                 </div>
                 <div className="comment_info">
                   <div className="comment_top">

@@ -11,7 +11,7 @@ import LeftNavBar from "./components/Navbars/LeftNavBar";
 import Videos from "./components/Videos/Videos";
 import ProfilePage from "./components/profilepage/ProfilePage";
 import Modal from "./components/Modal/modal";
-import Modal2 from "./components/Modal/modal2"
+import Modal2 from "./components/Modal/modal2";
 import PrivateMessages from "./components/PrivateMessages/PrivateMessages";
 import UsersProfile from "./components/UsersProfile/UsersProfile";
 
@@ -47,7 +47,7 @@ function App() {
         <Route path="/" exact={true}>
           <Videos />
         </Route>
-        <ProtectedRoute path="/myprofile" exact={true}>
+        <ProtectedRoute path="/myprofile/:userId" exact={true}>
           <ProfilePage />
         </ProtectedRoute>
         <Route path="/user/profile/:user_id" exact={true}>

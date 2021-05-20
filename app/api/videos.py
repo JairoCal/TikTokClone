@@ -31,8 +31,6 @@ def upload_video(user_id):
             video = request.files["video"]
             video.filename = get_unique_filename(video.filename)
             upload = upload_file_to_s3(video)
-            print(upload)
-            print(upload["url"], "What video url are ****************")
             if 'url' in upload:
                 url = upload["url"]
             else:
