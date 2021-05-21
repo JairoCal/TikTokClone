@@ -1,9 +1,14 @@
 const GET_CATEGORIES_FEED = "user/GET_CATEGORIES_FEED";
+const UNLOAD = "categoriesFeed/UNLOAD";
 
 // action
 const getVideos = (categoriesFeed) => ({
   type: GET_CATEGORIES_FEED,
   payload: categoriesFeed,
+});
+
+export const UnloadCategoriesFeed = () => ({
+  type: UNLOAD,
 });
 
 //thunk
@@ -27,6 +32,10 @@ export default function categoriesFeedReducer(
   switch (action.type) {
     case GET_CATEGORIES_FEED:
       return action.payload.category_videos;
+    case UNLOAD:
+      return {
+        categoriesFeed: {},
+      };
     default:
       return state;
   }

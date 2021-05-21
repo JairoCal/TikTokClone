@@ -5,15 +5,17 @@ import { useHistory } from "react-router-dom";
 
 import { Unload } from "../../store/friendsfeed";
 import { UnloadFollows } from "../../store/following";
+import { UnloadCategoriesFeed } from "../../store/foryou";
 
 const LogoutButton = () => {
   let history = useHistory();
 
   const dispatch = useDispatch();
-  const onLogout = async (e) => {
+  const onLogout = async () => {
     await dispatch(logout());
     dispatch(Unload());
     dispatch(UnloadFollows());
+    dispatch(UnloadCategoriesFeed());
     history.push("/");
   };
 
