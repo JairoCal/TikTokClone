@@ -1,5 +1,6 @@
 const GET_FOLLOWING = "user/GET_FOLLOWING";
 const ADD_FOLLOWER = "user/ADD_FOLLOWER";
+const UNLOAD = "following/UNLOAD";
 
 // Action
 const getFollowing = (following) => ({
@@ -10,6 +11,10 @@ const getFollowing = (following) => ({
 const addFollower = (newFollower) => ({
   type: ADD_FOLLOWER,
   payload: newFollower,
+});
+
+export const UnloadFollows = () => ({
+  type: UNLOAD,
 });
 
 // Thunk
@@ -49,9 +54,13 @@ export default function followingReducer(state = { following: [] }, action) {
     case GET_FOLLOWING:
       return action.payload.follows;
     case ADD_FOLLOWER:
-      newState = [...state]
+      newState = [...state];
       newState.push(action.payload);
       return newState;
+    case UNLOAD:
+      return {
+        comments: [],
+      };
     default:
       return state;
   }
