@@ -28,6 +28,9 @@ function Videos() {
   const [page, setPage] = useState(0);
   const [videoId, setVideoId] = useState(null);
   const videoRef = useRef(null);
+  const categoriesBoolean = useSelector(
+    (state) => state.categoriesBoolean.followingCategories
+  );
 
   const showUserForm = (e) => {
     dispatch(getUserName(e.target.classList[0]));
@@ -80,7 +83,7 @@ function Videos() {
     if (user) {
       dispatch(getCategoriesFeed(user.id));
     }
-  }, [dispatch, user, page]);
+  }, [dispatch, user, page, categoriesBoolean]);
 
   // grabs all videos
   useEffect(() => {
