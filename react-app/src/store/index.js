@@ -18,6 +18,7 @@ import video from "./uploadvideo";
 import VideoId from "./VideoId";
 import UserVideos from "./UsersVideos";
 import userCategories from "./myCategories";
+import categoriesBoolean from "./FollowCategory";
 
 const rootReducer = combineReducers({
   session,
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
   VideoId,
   UserVideos,
   userCategories,
+  categoriesBoolean,
 });
 
 let enhancer;

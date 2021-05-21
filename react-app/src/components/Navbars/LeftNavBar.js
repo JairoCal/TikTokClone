@@ -16,12 +16,15 @@ function LeftNavBar() {
   const user = useSelector((state) => state.session.user);
   const following = useSelector((state) => state.following);
   const userCategories = useSelector((state) => state.userCategories);
+  const categoriesBoolean = useSelector(
+    (state) => state.categoriesBoolean.followingCategories
+  );
 
   useEffect(() => {
     if (user) {
       dispatch(getUserCategories(user.id));
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, categoriesBoolean]);
 
   useEffect(() => {
     if (user) {
