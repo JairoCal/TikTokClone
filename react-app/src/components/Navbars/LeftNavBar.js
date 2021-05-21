@@ -7,6 +7,7 @@ import UserForm from "../auth/UserForm";
 import { getId } from "../../store/User";
 import { getUserName } from "../../store/UserName";
 import { getCategories } from "../../store/Categories";
+import { getUserCategories } from "../../store/myCategories";
 
 import "./Navbars.css";
 
@@ -14,6 +15,16 @@ function LeftNavBar() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const following = useSelector((state) => state.following);
+  const userCategories = useSelector((state) => state.userCategories);
+  const categoriesBoolean = useSelector(
+    (state) => state.categoriesBoolean.followingCategories
+  );
+
+  useEffect(() => {
+    if (user) {
+      dispatch(getUserCategories(user.id));
+    }
+  }, [dispatch, user, categoriesBoolean]);
 
   useEffect(() => {
     if (user) {
@@ -33,10 +44,10 @@ function LeftNavBar() {
     <nav className="left_navbar">
       {user && (
         <div className="left_navbar_header">
-          <h1>Following</h1>
+          <h1>Followed Users</h1>
         </div>
       )}
-      <div>
+      <div className="following_users">
         {user &&
           following.length > 0 &&
           following.map((following) => (
@@ -58,6 +69,20 @@ function LeftNavBar() {
             </div>
           ))}
       </div>
+      {user && (
+        <div>
+          <div className="categories_followed_header">
+            <h1>Categories Followed</h1>
+          </div>
+          <div className="categories_followed">
+            {user &&
+              userCategories.length > 0 &&
+              userCategories?.map((category) => (
+                <p className="navbar_category">{category.genre}</p>
+              ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

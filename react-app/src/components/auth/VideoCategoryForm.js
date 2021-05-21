@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { videoFollowCategory } from "../../store/FollowCategory";
-import { hideModal} from "../../store/modal";
-
+import { hideModal } from "../../store/modal";
+import { useHistory } from "react-router-dom";
 
 function VideoCategoryForm() {
+  let history = useHistory();
   const dispatch = useDispatch();
   const video_id = useSelector((state) => state.video.id);
+  const user_id = useSelector((state) => state.session.user.id);
 
   const categories = useSelector((state) => state.categories);
   const [checkedCategories, setCheckedCategories] = useState([]);
@@ -23,7 +25,13 @@ function VideoCategoryForm() {
   const onCategoryAdd = (e) => {
     e.preventDefault();
     dispatch(videoFollowCategory(checkedCategories, video_id));
+    redirectFunc();
     dispatch(hideModal());
+  };
+
+  const redirectFunc = () => {
+    console.log("Are we here");
+    history.push(`/myprofile/${user_id}`);
   };
 
   return (

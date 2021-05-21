@@ -1,9 +1,14 @@
 const GET_FRIENDS_FEED = "user/GET_FRIENDS_FEED";
+const UNLOAD = "user/UNLOAD";
 
 // action
 const getFriendsVideos = (friendsFeed) => ({
   type: GET_FRIENDS_FEED,
   payload: friendsFeed,
+});
+
+export const Unload = () => ({
+  type: UNLOAD,
 });
 
 //thunk
@@ -20,10 +25,17 @@ export const getFriendsFeed = (userId) => async (dispatch) => {
 };
 
 // reducer
-export default function friendsFeedReducer(state = { friendsFeed: {} }, action) {
+export default function friendsFeedReducer(
+  state = { friendsFeed: {} },
+  action
+) {
   switch (action.type) {
     case GET_FRIENDS_FEED:
       return action.payload.following_videos;
+    case UNLOAD:
+      return {
+        friendsFeed: {},
+      };
     default:
       return state;
   }

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { userFollowCategory } from "../../store/FollowCategory";
 import { hideModal2 } from "../../store/modal2";
+import { getUserCategories } from "../../store/myCategories";
 
 import "./auth.css";
 
 function UserCategoryForm() {
+  let history = useHistory();
   const dispatch = useDispatch();
   const user_id = useSelector((state) => state.session.user.id);
 
@@ -24,6 +27,8 @@ function UserCategoryForm() {
   const onCategoryAdd = (e) => {
     e.preventDefault();
     dispatch(userFollowCategory(checkedCategories, user_id));
+    dispatch(getUserCategories(user_id));
+    history.push("/");
     dispatch(hideModal2());
   };
   return (
