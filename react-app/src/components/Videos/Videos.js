@@ -24,6 +24,7 @@ function Videos() {
   const allFeed = useSelector((state) => state.allVideos);
   const friendsFeed = useSelector((state) => state.friendsFeed);
   const categoriesFeed = useSelector((state) => state.categoriesFeed);
+  const followingFriends = useSelector((state) => state.following);
   const [page, setPage] = useState(0);
   const [videoId, setVideoId] = useState(null);
   const videoRef = useRef(null);
@@ -108,13 +109,17 @@ function Videos() {
           <div className="video_container">
             <div className="buttons_container">
               <div>
-                <a onClick={onFriendsFeed}>Friends Feed</a>
+                {followingFriends.length > 0 && (
+                  <a onClick={onFriendsFeed}>Friends Feed</a>
+                )}
               </div>
               <div>
-                <a onClick={onForYou}>For You</a>
+                {categoriesFeed.length > 0 && (
+                  <a onClick={onForYou}>Your Categories</a>
+                )}
               </div>
               <div>
-                <a onClick={onAllFeed}>Explore</a>
+                <a onClick={onAllFeed}>All Videos</a>
               </div>
             </div>
             {allFeed?.map((video) => (
@@ -166,13 +171,17 @@ function Videos() {
           <div className="video_container">
             <div className="buttons_container">
               <div>
-                <a onClick={onFriendsFeed}>Friends Feed</a>
+                {followingFriends.length > 0 && (
+                  <a onClick={onFriendsFeed}>Friends Feed</a>
+                )}
               </div>
               <div>
-                <a onClick={onForYou}>For You</a>
+                {categoriesFeed.length > 0 && (
+                  <a onClick={onForYou}>Your Categories</a>
+                )}
               </div>
               <div>
-                <a onClick={onAllFeed}>Explore</a>
+                <a onClick={onAllFeed}>All Videos</a>
               </div>
             </div>
             {friendsFeed?.map((video) => (
@@ -224,13 +233,17 @@ function Videos() {
           <div className="video_container">
             <div className="buttons_container">
               <div>
-                <a onClick={onFriendsFeed}>Friends Feed</a>
+                {followingFriends.length > 0 && (
+                  <a onClick={onFriendsFeed}>Friends Feed</a>
+                )}
               </div>
               <div>
-                <a onClick={onForYou}>For You</a>
+                {categoriesFeed.length > 0 && (
+                  <a onClick={onForYou}>Your Categories</a>
+                )}
               </div>
               <div>
-                <a onClick={onAllFeed}>Explore</a>
+                <a onClick={onAllFeed}>All Videos</a>
               </div>
             </div>
             {categoriesFeed?.map((video) => (
