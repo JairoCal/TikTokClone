@@ -33,10 +33,10 @@ function LeftNavBar() {
     <nav className="left_navbar">
       {user && (
         <div className="left_navbar_header">
-          <h1>Following</h1>
+          <h1>Followed Users</h1>
         </div>
       )}
-      <div>
+      <div className="following_users">
         {user &&
           following.length > 0 &&
           following.map((following) => (
@@ -58,6 +58,19 @@ function LeftNavBar() {
             </div>
           ))}
       </div>
+      {user && (
+        <div>
+          <div className="categories_followed_header">
+            <h1>Categories Followed</h1>
+          </div>
+          <div className="categories_followed">
+            {user &&
+              user.categories?.map((category) => (
+                <p className="navbar_category">{category.genre}</p>
+              ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
