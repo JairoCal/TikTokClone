@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { uploadVideo } from "../../store/uploadvideo";
 import { hideModal, showModal, setCurrentModal } from "../../store/modal";
 import VideoCategoryForm from "../auth/VideoCategoryForm";
+import { useHistory } from "react-router-dom";
 
 import { videoFollowCategory } from "../../store/FollowCategory";
 
@@ -10,6 +11,7 @@ import "./VideoForm.css";
 import "./auth.css";
 
 function VideoForm() {
+  let history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [title, setTitle] = useState("");
@@ -53,6 +55,7 @@ function VideoForm() {
     e.preventDefault();
     dispatch(videoFollowCategory(checkedCategories, video_id));
     dispatch(hideModal());
+    history.push(`/myprofile/${user.id}`);
   };
 
   const moveThis = (e) => {
