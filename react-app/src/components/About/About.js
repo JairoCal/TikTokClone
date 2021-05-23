@@ -16,9 +16,15 @@ function About() {
             <h1>Jairo Calderon</h1>
           </div>
           <div className="about_icons">
-            <GitHubIcon />
-            <LinkedInIcon />
-            <WebIcon />
+            <a href="https://github.com/JairoCal">
+              <GitHubIcon />
+            </a>
+            <a href="https://www.linkedin.com/in/jairo-calderon-44512ba5/">
+              <LinkedInIcon />
+            </a>
+            <a href="https://jairocal.github.io/Portfolio/">
+              <WebIcon />
+            </a>
           </div>
         </div>
       </div>
