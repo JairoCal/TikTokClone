@@ -1,6 +1,6 @@
 <img src="https://github.com/JairoCal/TikTokClone/blob/main/WikiImages/Vid-hub.png"/>
 
-[Vid-Hub](https://vid-hub.herokuapp.com/) is a fullstack clone of the viral media app TikTok that allows users to share videos and communicate with others!
+[Vid-Hub](https://vid-hub.herokuapp.com/) is a fullstack clone of the viral media app TikTok that allows users to share videos in a social media hub and communicate with others!
 
 *********************
 ## Technologies Used
