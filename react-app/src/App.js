@@ -14,6 +14,7 @@ import Modal from "./components/Modal/modal";
 import Modal2 from "./components/Modal/modal2";
 import PrivateMessages from "./components/PrivateMessages/PrivateMessages";
 import UsersProfile from "./components/UsersProfile/UsersProfile";
+import About from "./components/About/About";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -59,6 +60,9 @@ function App() {
         <ProtectedRoute path="/privatemessages/:receiver_id" exact={true}>
           <PrivateMessages />
         </ProtectedRoute>
+        <route path="/about" exact={true}>
+          <About />
+        </route>
       </Switch>
     </BrowserRouter>
   );

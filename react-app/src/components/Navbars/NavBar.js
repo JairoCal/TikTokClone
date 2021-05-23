@@ -35,6 +35,11 @@ const NavBar = () => {
   return (
     <nav className="bottom_navbar">
       <div>
+        <NavLink to="/about" exact={true} activeClassName="active">
+          <a className="contact_link">Developer</a>
+        </NavLink>
+      </div>
+      <div>
         <NavLink to="/" exact={true} activeClassName="active">
           <HomeIcon></HomeIcon>
         </NavLink>
