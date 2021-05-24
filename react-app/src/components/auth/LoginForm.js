@@ -35,6 +35,17 @@ const LoginForm = () => {
       history.push("/");
     }
   };
+  
+  const onDemoLogin2 = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login("demo2@gmail.com", "password"));
+    if (data.errors) {
+      setErrors(data.errors);
+    } else {
+      dispatch(hideModal2());
+      history.push("/");
+    }
+  };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -92,6 +103,17 @@ const LoginForm = () => {
           <input name="password" type="password" value="password" hidden />
           <div className="login_input">
             <input type="submit" value="Demo" />
+          </div>
+        </div>
+      </form>
+      <form onSubmit={onDemoLogin2}>
+        <div className="login_input">
+          <input name="email" type="text" value="demo2@gmail.com" hidden />
+        </div>
+        <div className="login_input">
+          <input name="password" type="password" value="password" hidden />
+          <div className="login_input">
+            <input type="submit" value="Demo2" />
           </div>
         </div>
       </form>
