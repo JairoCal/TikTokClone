@@ -13,7 +13,7 @@ function DirectMessagesText(props) {
   const user = useSelector((state) => state.session.user);
   const [message, setMessage] = useState("");
   const [stateMessages, setStateMessages] = useState(messages);
-  const [thing, setThing] = useState(null);
+  const [userObject, setUserObject] = useState(null);
 
   const onClick = (e) => {
     e.preventDefault();
@@ -34,20 +34,20 @@ function DirectMessagesText(props) {
   };
 
   useEffect(() => {
-    setThing(null);
+    setUserObject(null);
   }, [props.currentRecipientId]);
 
   useEffect(() => {
-    if (thing === null) {
+    if (userObject === null) {
       setStateMessages(messages);
     } else {
-      setStateMessages([...stateMessages, thing]);
+      setStateMessages([...stateMessages, userObject]);
     }
-  }, [messages.length, thing]);
+  }, [messages.length, userObject]);
 
   useEffect(() => {
     privateSocket.on("private_room", (msg) => {
-      setThing(msg);
+      setUserObject(msg);
     });
   }, [stateMessages]);
 
