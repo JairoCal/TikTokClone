@@ -138,25 +138,25 @@ def seed_users_videos_categories():
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/98063356779c4002911c2453433bcef2.mp4', created_at=datetime.now())
     trailer22 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/4b71567f00b3476da1727e784594fd3d.mp4', created_at=datetime.now())
-    trailer23 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
+    trailer23 = Video(user_id=3, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/e2e87f5768984c30bbf5308a8c8d87e0.mp4', created_at=datetime.now())
     trailer24 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/f5cc3188e9bb47ca86eb51abe71b0ceb.mp4', created_at=datetime.now())
-    trailer25 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
+    trailer25 = Video(user_id=20, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/881474b518c04429a57a7ce4d780f816.mp4', created_at=datetime.now())
     trailer26 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/70f96a9ed24f4b53a6b49feef893e820.mp4', created_at=datetime.now())
-    trailer27 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
+    trailer27 = Video(user_id=25, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/eb35c08cadab40f6a2c12e3913069542.mp4', created_at=datetime.now())
     trailer28 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/5b7e9fcbb06741b384eb4c4ff655f0ec.mp4', created_at=datetime.now())
-    trailer29 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
+    trailer29 = Video(user_id=23, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/0574711e829f4bb0a25788ae94c7d9bc.mp4', created_at=datetime.now())
-    trailer30 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
+    trailer30 = Video(user_id=1, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/76088c71694b45eeb689d44aa1f993c9.mp4', created_at=datetime.now())
     trailer31 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/7eb97ccde5dd4d6590e10c8204902824.mp4', created_at=datetime.now())
-    trailer32 = Video(user_id=2, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
+    trailer32 = Video(user_id=1, title=fake.paragraph(nb_sentences=random.randint(1, 2)), description=fake.paragraph(nb_sentences=random.randint(2, 3)),
                       video_url='https://tiktokclonejairo.s3.amazonaws.com/ca4c97e0802042d1af1125970b06263a.mp4', created_at=datetime.now())
 
     trailer.categories_video.append(gaming)
