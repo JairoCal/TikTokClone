@@ -15,6 +15,7 @@ a:link {
 a {
   color: #66fcf1;
   font-weight: bold;
+  font-size: 18px;
 }
 
 a:hover {
@@ -40,8 +41,8 @@ img {
   position: fixed;
   top: 0;
   box-sizing: inherit;
-  min-width: 25vw;
-  max-width: 25vw;
+  min-width: 28vw;
+  max-width: 28vw;
   background-color: #0b0c10;
   color: #66fcf1;
   background-image: url("../images/background4.jpeg");
@@ -96,7 +97,7 @@ img {
   color: white;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  width: 20vw;
+  width: 23vw;
   border: 2px solid #45a29e;
   box-sizing: border-box;
 }
