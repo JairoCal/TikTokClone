@@ -18,7 +18,7 @@ def seed_comments():
 
             db.session.add(seed_comment)
 
-    auto_seed(100)
+    auto_seed(250)
 
     db.session.commit()
 
