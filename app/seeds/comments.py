@@ -8,7 +8,7 @@ fake = Faker()
 def seed_comments():
     def auto_seed(count):
         for i in range(count):
-            video_id = random.randint(1, 3)
+            video_id = random.randint(1, 35)
             user_id = random.randint(1, 79)
             message = fake.paragraph(nb_sentences=random.randint(2, 4))
             created_at = datetime.now()
@@ -18,15 +18,8 @@ def seed_comments():
 
             db.session.add(seed_comment)
 
-    auto_seed(75)
+    auto_seed(100)
 
-    comment1 = Comment(
-        video_id=1, user_id=1, message="Looks like a great game!", created_at=datetime.now())
-    comment2 = Comment(
-        video_id=1, user_id=2, message="Wow!", created_at=datetime.now())
-
-    db.session.add(comment1)
-    db.session.add(comment2)
     db.session.commit()
 
 
