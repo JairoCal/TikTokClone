@@ -104,11 +104,10 @@ class Video(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
         'users.id'), nullable=False)
-    title = db.Column(db.String(100), nullable=False)
+    title = db.Column(db.String(150), nullable=False)
     description = db.Column(db.String(255), nullable=False)
     video_url = db.Column(db.String(500), nullable=False)
     created_at = db.Column(db.Date)
-
     # Relations
     # User relation
     users = db.relationship('User', back_populates='videos')
