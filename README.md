@@ -35,3 +35,7 @@ When a user is logged in they can choose to upload a video directly from the Nav
 ## Comments and Categories
 **Categories** allows users to view videos based only on the categories they follow based on their preference on user signup. Each video will render **comments** on the right Navbar after having clicked on a video. A logged in user will then have the option to comment on the chosen video either through the input box or with a GIF through the use of Giphys api.
 <img src="https://github.com/JairoCal/TikTokClone/blob/main/WikiImages/Comments%20and%20Categories.png"/>
+
+## Direct Messaging
+**Live Chat Meessaging** implemented through **Websockets** allows users to communicate with others through real time. Users can go to their messages and chat with someone they've previously messaged or can initiate a chat with a new user from the homepage by selecting on a users name.
+<img src="https://github.com/JairoCal/TikTokClone/blob/main/WikiImages/LiveChat.gif"/>
